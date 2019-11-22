@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hci | NetApp Cloud Docs</title>
+    <atom:link href="https://docs.netapp.com/hci/us-en/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>https://docs.netapp.com/hci/us-en</link>
+    <description>The latest updates from NetApp Cloud Docs</description>
+    <language>en-us</language>
+    <ttl>60</ttl>
+    <pubDate>Fri, 22 Nov 2019 20:59:03 +0000</pubDate>
+    <lastBuildDate>Fri, 22 Nov 2019 20:59:03 +0000</lastBuildDate>
+    
+  </channel>
+</rss>

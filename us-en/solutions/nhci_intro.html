@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Overview of the NetApp HCI Infrastructure Platform | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Overview of the NetApp HCI Infrastructure Platform | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/hci/us-en/solutions/nhci_intro.html" />
+	<meta property="og:description" content="An overview of the NetApp HCI infrastructure platform" />
+  <meta property="og:image" content="https://docs.netapp.com/hci/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="An overview of the NetApp HCI infrastructure platform">
+  <meta name="keywords" content=" hci, infrastructure, overview">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/hci/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/hci/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/hci/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/hci/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/hci/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/hci/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/hci/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/hci/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/hci/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/hci/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/hci/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/hci/us-en/js/clouddocs.js'></script>
+  <script src='/hci/us-en/js/s_code_impl.js'></script>
+  <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/hci/us-en/js/toc.js'></script>
+  <script src='/hci/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/hci/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/hci/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/hci/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="..../../../index.html">Cloud Services and Solutions on NetApp HCI</a></li>
+  
+
+  
+    <li><a href="index.html">NetApp HCI Solutions</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Private Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1122-design.pdf" target="_blank">VMware Private Cloud (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1122-deploy.pdf" target="_blank">VMware Private Cloud (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1128-design.pdf" target="_blank">VMware Validated Design</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1133-design.pdf" target="_blank">Private Cloud with Red Hat (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1133-deploy.pdf" target="_blank">Private Cloud with Red Hat (Deployment Guide)</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Containers and DevOps</a>
+      <ul>
+        
+
+  
+    <li><a href="nhci_devops_cicd.html">DevOps CI / CD Pipeline</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/wp-7304.pdf" target="_blank">Infrastructure as Code with Red Hat Ansible</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1124-design.pdf" target="_blank">Red Hat Openshift Container Platform (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1124-deploy.pdf" target="_blank">Red Hat Openshift Container Platform (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1141.pdf" target="_blank">NetApp HCI with Anthos</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">End User Computing (EUC)</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4792.pdf" target="_blank">VMware Horizon 7 with 3D Graphics</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1132-design.pdf" target="_blank">VMware EUC (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1132-deploy.pdf" target="_blank">VMware EUC (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1129-design.pdf" target="_blank">VMware EUC with NVIDA GPUs (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1129-deploy.pdf" target="_blank">VMware EUC with NVIDA GPUs (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4630.pdf" target="_blank">VMware Horizon View 7</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1140-design.pdf" target="_blank">Citrix Virtual Apps and Desktops with VMware vSphere (Design Guide)</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Database</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4633.pdf" target="_blank">MongoDB</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4768.pdf" target="_blank">Oracle</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4721.pdf" target="_blank">Sybase ASE</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4638.pdf" target="_blank">SQL Server</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Data Fabric</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4748.pdf" target="_blank">Build your Data Fabric with NetApp HCI, ONTAP and Converged Infrastructure</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4734.pdf" target="_blank">StorageGrid Deployment on NetApp HCI</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Data Protection</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1137.pdf" target="_blank">Multicloud Data Protection with Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4795.pdf" target="_blank">Disaster Recovery and Replication with VMware SRM</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4778.pdf" target="_blank">Splunk Enterprise with Arrow Appliance</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4634.pdf" target="_blank">Veeam Backup and Replication 9.5 v4</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+
+  
+    <li><a href="https://fieldportal.netapp.com/collections/810434" target="_blank">Solution Collection (login required)</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Overview of the NetApp HCI Infrastructure Platform
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/solutions/nhci_intro.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Overview of the NetApp HCI Infrastructure Platform](https://docs.netapp.com/us-en/hci/solutions/nhci_intro.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-11-21 13:04:15 +0000">11/21/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/kevin-hoke">
+    <img  class="avatar avatar-small"
+          alt="kevin-hoke"
+          width="20" height="20"
+          src="https://avatars2.githubusercontent.com/u/55808219?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>NetApp HCI provides great flexibility combined with enterprise level capabilities.  Let&#8217;s delve into the features and benefits of the platform.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview">Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp HCI is an enterprise-scale infrastructure that consists of a mix of storage nodes and compute nodes. NetApp HCI delivers predictable performance on a highly flexible, efficient architecture, making it easy to manage. With NetApp Element software, you unlock the power of the data fabric, enabling NetApp HCI to participate in hybrid cloud services.</p>
+</div>
+<div class="paragraph">
+<p>The installation and configuration required to deploy VMs are automated with NDE. Compute clusters are managed with VMware vCenter, and storage clusters are managed with the vCenter plug-in that is deployed with NDE. A management VM called mNode that deploys as part of NDE handles version upgrades, pushing events to vCenter, vCenter plug-in management, the VPN tunnel for support, and the NetApp Active IQ® collector. It also enables you to extend NetApp cloud services to on-premises environments, thus enabling hybrid cloud infrastructure. With multiple options for compute and storage nodes,</p>
+</div>
+<div class="paragraph">
+<p>NetApp HCI is suitable for multiple workloads, including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>DevOps</p>
+</li>
+<li>
+<p>Container workloads</p>
+</li>
+<li>
+<p>Edge computing</p>
+</li>
+<li>
+<p>Database workloads</p>
+</li>
+<li>
+<p>Artificial intelligence</p>
+</li>
+<li>
+<p>Machine learning</p>
+</li>
+<li>
+<p>Virtual desktop infrastructure (VDI)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-hci-use-cases">NetApp HCI Use Cases</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>On-premises private clouds.</strong> With the option to start small and grow your infrastructure, NetApp HCI future-proofs your datacenter for later growth and flexibility.</p>
+</li>
+<li>
+<p><strong>Hybrid clouds.</strong> NetAppHCI can serve as the infrastructure for hybrid multi cloud or private cloud deployments.</p>
+</li>
+<li>
+<p><strong>End-user computing.</strong> You can deliver anoptimal user experience with NetApp HCI and VMware Horizon.</p>
+</li>
+<li>
+<p><strong>Workload consolidation.</strong> NetApp HCI QoS settings let you deliver guaranteed application performance.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-hci-key-features">NetApp HCI Key Features</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp HCI provides enterprise reliability and availability. Some of the important features of NetApp HCI include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Guaranteed performance</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allocate storage performance independent of capacity</p>
+</li>
+<li>
+<p>Manage performance in real time without affecting other volumes</p>
+</li>
+<li>
+<p>Guarantee performance to every volume with fine-grain QoS settings</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Global efficiency</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Inline and post-compression</p>
+</li>
+<li>
+<p>Automatic distribution of data (no hot spots) with always-on deduplication</p>
+</li>
+<li>
+<p>Global thin provisioning</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Data assurance</p>
+<div class="ulist">
+<ul>
+<li>
+<p>NetApp HCI Helix RAID-less data protection</p>
+</li>
+<li>
+<p>Real-time replication (synchronous and asynchronous)</p>
+</li>
+<li>
+<p>Integrated backup and recovery (cloud)</p>
+</li>
+<li>
+<p>Data and performance availability regardless of system condition or application activity</p>
+</li>
+<li>
+<p>Data safeguarded with 256-bit encryption</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="./media/nhci_infrastructure.jpg" alt="nhci infrastructure" width="800">
+</div>
+<div class="title">Figure 1. NetApp HCI Infrastructure components</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="netapp-hci-design-principles-predictability-flexibility-simplicity">NetApp HCI Design Principles: Predictability, Flexibility, Simplicity</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp HCI gives you flexible and straight forward control over your enterprise-class workloads. It is designed to provide predictable performance, linear scalability, and a simple deployment and management experience.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Predictable</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent noisy neighbors and satisfy performance SLAs with industry-leading performance QoS.</p>
+</li>
+<li>
+<p>Combine Storage Policy Based Management (SPBM) toautomate and manage QoS.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Flexible</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Confidently scale compute and storage nodes independently with zero share architecture.</p>
+</li>
+<li>
+<p>Prevent inefficient over provisioning and reduce TCO.</p>
+</li>
+<li>
+<p>Mix small, medium, and large compute and storage configurations.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Simple</p>
+<div class="ulist">
+<ul>
+<li>
+<p>With NDE, eliminate manual deployment and risk of user errors.</p>
+</li>
+<li>
+<p>Manage NetApp HCI with the Element Plug-in for vCenter</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="compute-and-storage-nodes">Compute and Storage Nodes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp HCI offers multiple form factors for various compute and storage needs. A minimum starting configuration includes two chassis with two compute and four storage nodes. More nodes are needed for GPU-driven workloads such as VMware Horizon or machine learning. Compute nodes used for database workloads are also available with this architecture.</p>
+</div>
+<div class="sect3">
+<h4 id="compute-nodes">Compute Nodes</h4>
+<div class="paragraph">
+<p>NetApp H300E, H500E, and H700E nodes are based on Intel Xeon E5 v4(Broadwell) processors. NetApp HCI H410C and H610C nodes are based on Intel Scalable (Skylake) processors. The NetApp HCI H610C node contains two NVIDIA Tesla M10 cards. NetAppHCI compute nodes can scale up to 64 per cluster.</p>
+</div>
+<div class="paragraph">
+<p>NetApp strongly recommends reading the <a href="https://www.netapp.com/us/media/ds-3881.pdf">NetApp HCI datasheet</a> for more information about NetApp HCI compute and storage offerings. For details about how NetApp HCI works, see the <a href="https://www.netapp.com/us/media/wp-7261.pdf">NetApp HCI Theory of Operations</a> white paper.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="storage-nodes">Storage Nodes</h4>
+<div class="paragraph">
+<p>Storage nodes are available on either half-width or full-width rack units. Half-width rack units are populating two rack unit chassis, which can contain either storage or compute nodes. At least four storage nodes are required and can be expanded to up to 40 nodes. A storage cluster can be shared across multiple compute clusters offering asynchronous, synchronous, and Snapshot replication methods for integrated data service. Storage nodes contain a cache controller to improve the write performance. A single node provides either 50K or 100K IOPS at 4K block size.</p>
+</div>
+<div class="paragraph">
+<p>NetApp HCI storage nodes run Element software, which provides a QoS feature that supports minimum, maximum, and burst limits. The storage cluster allows a mix of storage nodes; the only caveat is that one storage node size can’t exceed 1/3 of total capacity.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="element-software">Element Software</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Element software is designed for data centers that require rapid, modular growth or contraction for diverse workloads. Because of its flexible handling of permanent and transient workloads with varioust hroughput and capacity requirements, Element software is the storage infrastructure of choice for service providers.</p>
+</div>
+<div class="paragraph">
+<p>Element provides modular, scalable performance with each storage node, delivering guaranteed capacity and throughput to the environment. Each Element storage node added to aNetApp HCI environment provides a set amount of IOPS and capacity, allowing predictable, planned growth.</p>
+</div>
+<div class="paragraph">
+<p>Because each node provides a set throughput (IOPS) to the storage environment, QoS for each workload can be guaranteed. Element helps you ensure minimum SLAs because the total throughput of the cluster is a known, quantifiable amount. For more information, see the <a href="https://www.netapp.com/us/products/data-management-software/element-os.aspx">Element software product page</a>.</p>
+</div>
+<div class="paragraph">
+<p>Element software is 100% programmable and delivers unmatched agility and guaranteed application performance. With the ability to mix nodes within a cluster, you can build a private cloud architecture to meet your business needs at any scale.</p>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/hci/us-en/common/js/components.js"></script>
+    <script src="/hci/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/hci/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/hci/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/hci/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

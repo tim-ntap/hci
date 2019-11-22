@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  
+    
+    
+  
+
+  
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_architecture.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_architecture_cloudinsights.html</loc>
+      
+      <lastmod>2019-08-19T19:34:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_behind_the_scenes.html</loc>
+      
+      <lastmod>2019-11-13T15:55:21+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_behind_the_scenes_fo.html</loc>
+      
+      <lastmod>2019-11-13T15:55:21+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_cloud_central_accounts.html</loc>
+      
+      <lastmod>2019-11-13T15:02:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_cluster_types.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_gettingstarted.html</loc>
+      
+      <lastmod>2019-11-13T21:03:37+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_kubernetes_pods_volumes_projects.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_licensing.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_managing_overview.html</loc>
+      
+      <lastmod>2019-08-19T19:34:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_overview.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_types_cloudservices.html</loc>
+      
+      <lastmod>2019-11-20T20:40:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/solutions/</loc>
+      
+      <lastmod>2019-11-21T13:04:15+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/</loc>
+      
+      <lastmod>2019-11-20T20:40:34+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/solutions/nhci_devops_cicd.html</loc>
+      
+      <lastmod>2019-11-21T14:32:00+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/solutions/nhci_intro.html</loc>
+      
+      <lastmod>2019-11-21T13:04:15+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/reference_requirements_beforeyoubegin.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/search.html</loc>
+      
+      <lastmod>2019-11-22T20:55:49+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci//search.html</loc>
+      
+      <lastmod>2019-11-22T20:55:35+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_NKS_adding_applications.html</loc>
+      
+      <lastmod>2019-11-13T15:02:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_NKS_create_cluster.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_cloudcentral_signup.html</loc>
+      
+      <lastmod>2019-11-13T15:02:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_cv_managing.html</loc>
+      
+      <lastmod>2019-11-13T15:55:21+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_cvs_create_cloud_volumes.html</loc>
+      
+      <lastmod>2019-08-19T19:34:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_deploying_overview.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_dfo_creating_cloud_volumes.html</loc>
+      
+      <lastmod>2019-11-13T19:16:32+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_enabling_cloud_services.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_fo_accessing.html</loc>
+      
+      <lastmod>2019-11-13T16:26:52+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_getting_a_netapp_kubernetes_service_api_token.html</loc>
+      
+      <lastmod>2019-11-13T15:02:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_license_convert.html</loc>
+      
+      <lastmod>2019-08-19T19:34:01+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_logging_in.html</loc>
+      
+      <lastmod>2019-11-13T15:02:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_nks_accessing.html</loc>
+      
+      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_nks_creating_projects.html</loc>
+      
+      <lastmod>2019-11-13T15:55:21+00:00</lastmod>
+      
+    </url>
+  
+
+  
+  
+</urlset>

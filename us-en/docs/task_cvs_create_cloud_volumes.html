@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Creating cloud volumes using Cloud Volumes Service | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Creating cloud volumes using Cloud Volumes Service | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/hci/us-en/docs/task_cvs_create_cloud_volumes.html" />
+	<meta property="og:description" content="Create cloud volumes using Cloud Volumes Service." />
+  <meta property="og:image" content="https://docs.netapp.com/hci/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="Create cloud volumes using Cloud Volumes Service.">
+  <meta name="keywords" content=" netapp, hci, on premise, cloud services, cloud volumes">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/hci/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/hci/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/hci/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/hci/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/hci/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/hci/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/hci/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/hci/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/hci/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/hci/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/hci/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/hci/us-en/js/clouddocs.js'></script>
+  <script src='/hci/us-en/js/s_code_impl.js'></script>
+  <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/hci/us-en/js/toc.js'></script>
+  <script src='/hci/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/hci/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/hci/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/hci/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="..../../../index.html">NetApp HCI Cloud Services and Solutions</a></li>
+  
+
+  
+    <li><a href="index.html">NetApp HCI Cloud Services</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_overview.html">Cloud services on NetApp HCI overview</a></li>
+  
+
+  
+    <li><a href="concept_types_cloudservices.html">Types of cloud services on NetApp HCI</a></li>
+  
+
+  
+    <li><a href="concept_architecture.html">Architecture overview for cloud services on NetApp HCI</a></li>
+  
+
+  
+    <li><a href="concept_behind_the_scenes.html">What happens behind the cloud services scenes</a></li>
+  
+
+  
+    <li><a href="concept_cluster_types.html">Cluster types in cloud services on NetApp HCI</a></li>
+  
+
+  
+    <li><a href="concept_kubernetes_pods_volumes_projects.html">Kubernetes pods, volumes, and projects</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Getting started with cloud services on NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_gettingstarted.html">Getting started overview</a></li>
+  
+
+  
+    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+  
+
+  
+    <li><a href="task_cloudcentral_signup.html">Signing up for a Cloud Central account</a></li>
+  
+
+  
+    <li><a href="reference_requirements_beforeyoubegin.html">System requirements before you begin</a></li>
+  
+
+  
+    <li><a href="concept_licensing.html">Licensing</a></li>
+  
+
+  
+    <li><a href="task_getting_a_netapp_kubernetes_service_api_token.html">Getting a NetApp Kubernetes Service API token</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Enabling cloud services on NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="task_deploying_overview.html">Deploying cloud services on NetApp HCI overview</a></li>
+  
+
+  
+    <li><a href="task_enabling_cloud_services.html">Enabling cloud services using NetApp Hybrid Cloud Control</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Enabling Kubernetes clusters on NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="task_nks_accessing.html">Accessing NetApp Kubernetes Service</a></li>
+  
+
+  
+    <li><a href="task_NKS_create_cluster.html">Creating a Kubernetes cluster using NetApp Kubernetes Service</a></li>
+  
+
+  
+    <li><a href="task_nks_creating_projects.html">Creating a project within your Kubernetes workspace</a></li>
+  
+
+  
+    <li><a href="task_NKS_adding_applications.html">Adding applications to your Kubernetes clusters</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Managing data in Cloud Volumes with NetApp Fabric Orchestrator</a>
+      <ul>
+        
+
+  
+    <li><a href="task_cv_managing.html">Managing data in NetApp Cloud Volumes</a></li>
+  
+
+  
+    <li><a href="concept_behind_the_scenes_fo.html">What happens behind the scenes with NetApp Fabric Orchestrator and NetApp HCI</a></li>
+  
+
+  
+    <li><a href="task_fo_accessing.html">Accessing NetApp Fabric Orchestrator</a></li>
+  
+
+  
+    <li><a href="task_dfo_creating_cloud_volumes.html">Creating cloud volumes with NetApp Fabric Orchestrator</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Creating cloud volumes using Cloud Volumes Service
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_cvs_create_cloud_volumes.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Creating cloud volumes using Cloud Volumes Service](https://docs.netapp.com/us-en/hci/docs/task_cvs_create_cloud_volumes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-08-19 19:34:01 +0000">08/19/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/amgrissino">
+    <img  class="avatar avatar-small"
+          alt="amgrissino"
+          width="20" height="20"
+          src="https://avatars2.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div class="paragraph lead">
+<p>After you create your Kubernetes cluster, you typically want to add cloud volumes to the cluster.<br>
+These cloud volumes will reside on NetApp HCI.</p>
+</div>
+<div class="paragraph">
+<div class="title">About this task</div>
+<p>You can access NetApp Cloud Volumes Service in several ways:<br>
+*	Directly from NetApp Kubernetes Service<br>
+*	From NetApp Cloud Central<br>
+*	From any NetApp Cloud service</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Open a web browser and log in to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>.</p>
+</li>
+<li>
+<p>Access the NetApp Kubernetes Service.</p>
+</li>
+<li>
+<p>From the NetApp Kubernetes Service, click the <strong>NetApp</strong> icon in the upper left to show the NetApp Cloud Central services list.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../media/cvs_cloud_central_menu.png" alt="NetApp Cloud Central menu image"></span></p>
+</div>
+</li>
+<li>
+<p>Click <strong>Cloud Volumes Service</strong>.<br>
++ The Cloud Volumes Service Volumes page appears:<br>
+<span class="image"><img src="../media/cvs_volumes_page.png" alt="NetApp Cloud Volumes Service - Volumes page image"></span></p>
+</li>
+<li>
+<p>Click <strong>Create New Volume</strong>.</p>
+</li>
+<li>
+<p>On the Volumes page, review the hover text for each field and enter or select the following:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter the volume name, service level, and time zone for the volume.</p>
+</li>
+<li>
+<p>For the provider, choose <strong>NetApp Private Cloud</strong>.</p>
+</li>
+<li>
+<p>Choose the region.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Click <strong>Create Cloud Volume</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">Results</div>
+<p>The volume appears in the Volumes page showing the NetApp icon in the Provider column.</p>
+</div>
+<div class="paragraph">
+<p>For details, see NetApp Cloud Volumes Services information about creating cloud volumes.</p>
+</div>
+<h2 id="top-links" class="discrete">Top Links</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="task_deploying_overview.html">Deploying cloud services on NetApp HCI overview</a></p>
+</li>
+<li>
+<p><a href="concept_architecture_cloudinsights.html">Real-time analytics with NetApp Cloud Insights</a></p>
+</li>
+</ul>
+</div>
+<h2 id="find-more-information" class="discrete">Find more information</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://cloud.netapp.com/home" target="_blank" rel="noopener">NetApp Cloud Central</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloud/">NetApp Cloud Documentation</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/hybridcloudsolutions/" target="_blank" rel="noopener">Hybrid Cloud Solutions documentation</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">Cloud Insights documentation</a></p>
+</li>
+</ul>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/hci/us-en/common/js/components.js"></script>
+    <script src="/hci/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/hci/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/hci/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/hci/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>

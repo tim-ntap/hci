@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>NetApp HCI for DevOps | NetApp Cloud Docs</title>
+  <meta charset="utf-8">
+  <meta property="og:title" content="NetApp HCI for DevOps | NetApp Cloud Docs" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/hci/us-en/solutions/nhci_devops_cicd.html" />
+	<meta property="og:description" content="An introduction to the DevOps CI/CD pipeline for NetApp HCI" />
+  <meta property="og:image" content="https://docs.netapp.com/hci/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="An introduction to the DevOps CI/CD pipeline for NetApp HCI">
+  <meta name="keywords" content=" hci, devops, ci/cd, ci, cd, continuous integration, continuous delivery">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/hci/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/hci/us-en/feed.xml">
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- LUCI CSS Content -->
+  <link rel="stylesheet" href="/hci/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc-components.css">
+
+  <link rel="stylesheet" href='/hci/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/clouddocs.css' type='text/css'>
+
+  <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
+  <link rel="stylesheet" type="text/css" href="/hci/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/hci/us-en/css/customstyles.css"> -->
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/hci/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/hci/us-en/css/netapp.css' type='text/css'>
+
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/hci/us-en/js/na-search.js'></script>
+  
+
+  
+  <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/hci/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/hci/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/prism-netapp.css' type='text/css'>
+
+  <script src='/hci/us-en/js/clouddocs.js'></script>
+  <script src='/hci/us-en/js/s_code_impl.js'></script>
+  <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/hci/us-en/js/toc.js'></script>
+  <script src='/hci/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco({
+              caretHtml: '',
+              accordion: true,
+              openClass: 'active', // open
+              save: false, // leave false or nav highlighting doesn't work right
+              cookie: {
+                  name: 'navgoco',
+                  expires: false,
+                  path: '/'
+              },
+              slide: {
+                  duration: 400,
+                  easing: 'swing'
+              }
+          });
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class="n-doc__component-detail">
+    <a href="#n-main-content" class="visually-hidden">Skip to main content</a>
+<div class="n-off-canvas-menu">
+  <div class="n-off-canvas-menu__menu">
+    <div class="n-off-canvas-menu__menu-inner">
+      <div class="n-off-canvas-menu__property-title">NetApp Cloud Docs</div>
+      <ul class="n-off-canvas-menu__property-navigation-list">
+        <li class="n-off-canvas-menu__property-navigation-list-item ">
+          <a href="https://docs.netapp.com/us-en/" class="n-off-canvas-menu__property-navigation-link">
+            Home
+          </a>
+          <div class="n-off-canvas-menu__child-menu">
+            <ul class="n-menu__list">
+
+            </ul>
+          </div>
+        </li>
+      </ul>
+
+      <ul class="n-off-canvas-menu__global-navigation-list">
+         <li class="n-off-canvas-menu__global-navigation-list-header">More From NetApp</li>
+         <li class="n-off-canvas-menu__global-navigation-list-item"><a href="#" class="n-off-canvas-menu__global-navigation-link">Netapp.com</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    <div class="n-off-canvas-menu__content-wrap">
+      <!-- Header -->
+      <header>
+  <!-- Top Hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+            <li class="n-top-hat__list-item">
+              <a href="http://www.netapp.com" class="n-top-hat__link">NetApp.com</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Property Bar -->
+  <div class="n-property-bar n-property-bar--v3">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+          <title>bars</title>
+          <use xlink:href="/hci/us-en/common/svg/sprite.svg#bars"></use>
+        </svg></a>
+      </div>
+      <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
+        <a class="n-property-bar__property-link" href="https://docs.netapp.com/us-en/">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-property-bar__logo-svg" aria-labelledby="title">
+              <title>NetApp</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+          <h2 class="n-property-bar__property-name">Cloud Docs</h2>
+        </a>
+      </div>
+
+      
+      <div id="search-demo-container" class="n-property-bar__search">
+        <div id="react-search"></div>
+      </div>
+      
+
+      <div id="ie-i18n-menu" class="n-property-bar__utils">
+        <ul class="n-property-navigation-bar__utils-list">
+          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+              <span class="ie-i18n-lang">English</span>
+              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                <title>globe</title>
+                <use xlink:href="/hci/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="n-property-bar__menus">
+      <div id="n-property-navigation-bar__menu--language-selector" class="n-menu n-menu--v3">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/hci/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+      <!-- Content -->
+      <main role="main" id="n-main-content" class="n-main-content">
+        <div class="n-container">
+  <div class="n-row">
+    <div class="n-doc n-doc__component-list">
+      <!-- Sidebar Column -->
+      
+      <div class="col-md-3" >
+          
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="..../../../index.html">Cloud Services and Solutions on NetApp HCI</a></li>
+  
+
+  
+    <li><a href="index.html">NetApp HCI Solutions</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Private Cloud</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1122-design.pdf" target="_blank">VMware Private Cloud (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1122-deploy.pdf" target="_blank">VMware Private Cloud (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1128-design.pdf" target="_blank">VMware Validated Design</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1133-design.pdf" target="_blank">Private Cloud with Red Hat (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1133-deploy.pdf" target="_blank">Private Cloud with Red Hat (Deployment Guide)</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Containers and DevOps</a>
+      <ul>
+        
+
+  
+    <li class="active"><a href="nhci_devops_cicd.html">DevOps CI / CD Pipeline</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/wp-7304.pdf" target="_blank">Infrastructure as Code with Red Hat Ansible</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1124-design.pdf" target="_blank">Red Hat Openshift Container Platform (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1124-deploy.pdf" target="_blank">Red Hat Openshift Container Platform (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1141.pdf" target="_blank">NetApp HCI with Anthos</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">End User Computing (EUC)</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4792.pdf" target="_blank">VMware Horizon 7 with 3D Graphics</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1132-design.pdf" target="_blank">VMware EUC (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1132-deploy.pdf" target="_blank">VMware EUC (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1129-design.pdf" target="_blank">VMware EUC with NVIDA GPUs (Design Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1129-deploy.pdf" target="_blank">VMware EUC with NVIDA GPUs (Deployment Guide)</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4630.pdf" target="_blank">VMware Horizon View 7</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1140-design.pdf" target="_blank">Citrix Virtual Apps and Desktops with VMware vSphere (Design Guide)</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Database</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4633.pdf" target="_blank">MongoDB</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4768.pdf" target="_blank">Oracle</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4721.pdf" target="_blank">Sybase ASE</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4638.pdf" target="_blank">SQL Server</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Data Fabric</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4748.pdf" target="_blank">Build your Data Fabric with NetApp HCI, ONTAP and Converged Infrastructure</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4734.pdf" target="_blank">StorageGrid Deployment on NetApp HCI</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Data Protection</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1137.pdf" target="_blank">Multicloud Data Protection with Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4795.pdf" target="_blank">Disaster Recovery and Replication with VMware SRM</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4778.pdf" target="_blank">Splunk Enterprise with Arrow Appliance</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4634.pdf" target="_blank">Veeam Backup and Replication 9.5 v4</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+
+  
+    <li><a href="https://fieldportal.netapp.com/collections/810434" target="_blank">Solution Collection (login required)</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+      </div>
+      
+
+      <div class="n-doc__component-detail-content n-doc__component-detail-content--show-code">
+        <!-- Begin of page container -->
+        <article class="page-content">
+          
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">NetApp HCI for DevOps
+    <span>
+      
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/solutions/nhci_devops_cicd.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[NetApp HCI for DevOps](https://docs.netapp.com/us-en/hci/solutions/nhci_devops_cicd.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+      
+    </span>
+  </h1>
+</div>
+
+<p class="page-details">
+
+<time datetime="2019-11-21 14:32:00 +0000">11/21/2019</time>
+
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/kevin-hoke">
+    <img  class="avatar avatar-small"
+          alt="kevin-hoke"
+          width="20" height="20"
+          src="https://avatars2.githubusercontent.com/u/55808219?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Building an End-to-End CI/CD Pipeline</p>
+</div>
+<div class="paragraph">
+<p>This series of blogs and videos will explore how <em>NetApp HCI</em> satisfies the requirements of the <strong><em>DevOps</em></strong> <strong><em>Continuous Integration (CI)</em></strong> and <strong><em>Continuous Delivery (CD)</em></strong> pipeline.</p>
+</div>
+<div class="paragraph">
+<p><a href="nhci_intro.html">Learn more</a> about NetApp HCI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-is-devops">What is DevOps?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>DevOps</em></strong> is a set of software development practices that combine software development (<em>Dev</em>) and information-technology operations (<em>Ops</em>) to shorten the systems-development life cycle while delivering features, fixes, and updates frequently in close alignment with business objectives.</p>
+</div>
+<div class="paragraph">
+<p>As DevOps is intended to be a cross-functional mode of working, those that practice the methodology use different sets of tools—referred to as "toolchains"—rather than a single one.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="what-is-a-cicd-pipeline">What is a CI/CD Pipeline?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong><em>Continuous Integration (CI)</em></strong> and <strong><em>Continuous Delivery (CD)</em></strong> embody a culture, set of operating principles, and collection of practices that enable application development teams to deliver code changes more frequently and reliably. The implementation is also known as the <em>CI/CD pipeline </em>and is one of the best practices for DevOps teams to implement.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="addressing-the-cicd-pipeline-with-netapp-hci">Addressing the CI/CD Pipeline with NetApp HCI</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><span class="image"><a class="image" href="#configuration-management"><img src="./media/cicd-config-mgmt.jpg" alt="cicd config mgmt" width="402"></a></span> <span class="image"><a class="image" href="#source-repository"><img src="./media/cicd-src-repo.jpg" alt="cicd src repo" width="402"></a></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><a class="image" href="#develop"><img src="./media/cicd-develop.jpg" alt="cicd develop" width="131"></a></span> <span class="image"><a class="image" href="#commit"><img src="./media/cicd-commit.jpg" alt="cicd commit" width="131"></a></span> <span class="image"><a class="image" href="#test"><img src="./media/cicd-test.jpg" alt="cicd test" width="131"></a></span> <span class="image"><a class="image" href="#deploy"><img src="./media/cicd-deploy.jpg" alt="cicd deploy" width="131"></a></span> <span class="image"><a class="image" href="#production"><img src="./media/cicd-prod.jpg" alt="cicd prod" width="131"></a></span> <span class="image"><a class="image" href="#analyze"><img src="./media/cicd-analyze.jpg" alt="cicd analyze" width="131"></a></span></p>
+</div>
+<div class="paragraph">
+<p><span class="image"><a class="image" href="#feedback"><img src="./media/cicd-feedback.jpg" alt="cicd feedback" width="808"></a></span></p>
+</div>
+<div class="paragraph">
+<p><span class="small"><strong><em>Figure 1:</em></strong> <em>DevOps CI/CD Pipeline - Click on any component of the CI/CD pipeline to learn more about the capabilities.</em></span></p>
+</div>
+<div class="sect2">
+<h3 id="configuration-management">Configuration Management</h3>
+<div class="paragraph">
+<p>Configuration management refers to the process of setting up the virtual infrastructure for a DevOps CI/CD pipeline. Automation of the infrastructure configuration is a key tenant in DevOps where automation tools such as Ansible and Puppet are widely used to perform the required automation steps.</p>
+</div>
+<div class="paragraph">
+<p><strong>Automate configuration on your Virtual Infrastructure:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deploy Kubernetes on NetApp HCI with NKS: <a href="https://netapp.io/2019/10/15/deploy-k8s-netapp-hci-nks-part-1/"><strong><em>Blog</em></strong></a> | <a href="https://www.youtube.com/watch?v=LFyU2Oh-clA&amp;feature=youtu.be"><strong><em>Video</em></strong></a></p>
+</li>
+<li>
+<p>Deploy an application on a NetApp HCI cluster using curated NKS Helm charts: <a href="https://netapp.io/2019/10/24/netapp-hci-nks-devops-end-to-end-pipeline-part-2/"><strong><em>Blog</em></strong></a> | <a href="https://www.youtube.com/watch?v=JUlVZ19yArI&amp;feature=youtu.be"><strong><em>Video</em></strong></a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="source-repository">Source Repository</h3>
+<div class="paragraph">
+<p>A source repository is where the “code” is stored throughout the CI/CD pipeline. Developers “check-out” code to make changes, test the changes and “check-in” the code to be built and deployed. Examples of source repositories that will be referenced in the DevOps video/blog series include jFrog and Bitbucket.</p>
+</div>
+<div class="paragraph">
+<p><strong>Choose and setup a Source Repository:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configuring Jenkins with a new pipeline to run jobs in Kubernetes: <a href="https://netapp.io/2019/11/12/netapp-hci-nks-devops-end-to-end-pipeline-part-3/"><strong><em>Blog</em></strong></a> | [<strong><em>Video</em></strong>]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="develop">Develop</h3>
+<div class="paragraph">
+<p>In order to develop code in a CI/CD pipeline, a code and binary management system must be defined. The management system defines the practices for developing and introducing code into the pipeline. Tools such as Artifactory help in managing this process for DevOps.</p>
+</div>
+<div class="paragraph">
+<p><strong>Behind the scenes of Artifactory and HCI:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="commit">Commit</h3>
+<div class="paragraph">
+<p>Once code is developed and tested, it must be built before it can be deployed. The commit phase of the CI/CD pipeline addresses how the code it committed into the code management system and built so that it can be deployed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Setup your CI pipeline and Run your first builds:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Configuring Jenkins with a new pipeline to run jobs in Kubernetes: <a href="https://netapp.io/2019/11/12/netapp-hci-nks-devops-end-to-end-pipeline-part-3/"><strong><em>Blog</em></strong></a> | [<strong><em>Video</em></strong>]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="test">Test</h3>
+<div class="paragraph">
+<p>Testing is a critical component in any development process. In a CI/CD pipeline, testing is performed at the development phase as well as part of the “acceptance” of code prior to deployment.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deploy">Deploy</h3>
+<div class="paragraph">
+<p>Deployment of code occurs once the code has been developed, tested and built. Once built and verified, code can be deployed into a production or pre-production environment.</p>
+</div>
+<div class="paragraph">
+<p><strong>Deploy blue/green environments with Kubernetes:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="production">Production</h3>
+<div class="paragraph">
+<p>Once code is deployed into the production environment, it can be utilized to meet a customer use case. This topic will touch on how the DevOps CI/CD pipeline introduces code into production to solve a business need.</p>
+</div>
+<div class="paragraph">
+<p><strong>Data Protection, and DR to any place: on premise, off premise and the Cloud:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="analyze">Analyze</h3>
+<div class="paragraph">
+<p>Throughout the lifecycle of a CI/CD pipeline, analysis and metrics surrounding the code provide an effective means of evaluating the performance and effectiveness in meeting a business need. This section will touch on metrics and analytics using tools such as ServiceNow (as a self-service portal) and Cloud Insights.</p>
+</div>
+<div class="paragraph">
+<p><strong>Metrics are king:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>ServiceNow for a self-service Portal:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+<div class="paragraph">
+<p><strong>Using Cloud Insights:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="feedback">Feedback</h3>
+<div class="paragraph">
+<p>Feedback is a fundamental tenant of a successful CI/CD pipeline. At every point in the pipeline, feedback is given to ensure that the code is meeting the expectations. There are a variety of feedback options including, but not limited to, email, reports, blogs, source management notifications and execution logs.</p>
+</div>
+<div class="paragraph">
+<p><strong>Communicate status to your developers:</strong> <span class="image"><img src="./media/coming-soon.jpg" alt="coming soon"></span></p>
+</div>
+</div>
+</div>
+</div>
+
+        </article>
+        <!-- Page Container -->
+      </div>
+
+      
+      <div class="page-nav-container">
+        <nav class="page-nav-fixed">
+          <div class="page-nav-title">On this page:</div>
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </nav>
+      </div>
+      
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+      <!-- Footer -->
+      
+      <footer class="n-footer n-footer--v1" style="border-top: solid 10px #DFDFDF;">
+        <div class="n-footer__bottom">
+          <div class="n-container">
+            <div class="n-footer__bottom-left">
+              <div class="n-footer__copyright">
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>
+              </div>
+              <div class="n-footer__social-links n-footer__copyright">
+                <ul class="n-footer__social-link-list">
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-blog" href="http://blog.netapp.com" target="_blank" title="blog" alt="blog">
+                      <span class="n-footer__social-link-text">blog</span>
+                      <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                        <title>blog@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#blog"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-community" href="http://community.netapp.com/" target="_blank" title="community" alt="community">
+                      <span class="n-footer__social-link-text">community</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>community@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#comments"></use>
+                      </svg>
+                    </a>
+                  </li>
+
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netappdoc" target="_blank" title="twitter" alt="twitter">
+                      <span class="n-footer__social-link-text">twitter</span>
+                      <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                        <title>twitter@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#twitter"></use>
+                      </svg>
+                    </a>
+                  </li>
+                  <li class="n-footer__social-link-list-item">
+                    <a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTechCommTV/" target="_blank" title="youtube" alt="youtube">
+                      <span class="n-footer__social-link-text">youtube</span>
+                      <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                        <title>youtube@</title>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#youtube"></use>
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="n-footer__bottom-right">
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/contribute/" class="n-footer__copyright-link">Contribute</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <script src="/hci/us-en/common/js/components.js"></script>
+    <script src="/hci/us-en/common/js/doc-components.js"></script>
+
+    <!-- Elasticsearch JS -->
+    <script type="text/javascript" src='/hci/us-en/js/bundle.js'></script>
+
+    <!-- Syntax Highlighting -->
+    <script type="text/javascript" src='/hci/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/hci/us-en/js/prism-curl.js'></script>
+
+  </body>
+
+  
+</html>
