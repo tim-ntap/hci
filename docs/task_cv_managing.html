@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Managing data with Cloud Volumes on NetApp HCI | NetApp Cloud Docs</title>
+  <title>Managing data with Cloud Volumes on NetApp HCI overview | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Managing data with Cloud Volumes on NetApp HCI | NetApp Cloud Docs" />
+  <meta property="og:title" content="Managing data with Cloud Volumes on NetApp HCI overview | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/hci/docs/task_cv_managing.html" />
 	<meta property="og:description" content="You can create cloud volumes with Cloud Volumes on NetApp HCI." />
@@ -219,18 +219,21 @@
       </div>
       
 
-      <div id="ie-i18n-menu" class="n-property-bar__utils">
-        <ul class="n-property-navigation-bar__utils-list">
-          <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
-            <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
-              <span class="ie-i18n-lang">English</span>
-              <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
-                <title>globe</title>
-                <use xlink:href="/hci/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
-              </svg>
-            </a>
-          </li>
-        </ul>
+      <div id="ie-i18n" class="n-property-bar__utils">
+        <div id="ie-i18n-menu">
+          <ul class="n-property-navigation-bar__utils-list">
+            <li class="n-property-navigation-bar__utils-list-item ie-i18n-container">
+              <a href="#" class="n-property-navigation-bar__utils-link n-property-navigation-bar__nav-link n-property-navigation-bar__language-selector-toggle ie-i18n-link" data-menu-id="n-property-navigation-bar__menu--language-selector">
+                <span class="ie-i18n-lang">English</span>
+                <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
+                  <title>globe</title>
+                  <use xlink:href="/hci/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
       </div>
     </div>
 
@@ -399,6 +402,10 @@
         
 
   
+    <li><a href="task_nks_overview.html">Managing Kubernetes clusters on NetApp HCI overview</a></li>
+  
+
+  
     <li><a href="task_nks_accessing.html">Accessing NetApp Kubernetes Service</a></li>
   
 
@@ -427,7 +434,7 @@
         
 
   
-    <li class="active"><a href="task_cv_managing.html">Managing data in NetApp Cloud Volumes</a></li>
+    <li class="active"><a href="task_cv_managing.html">Managing data in NetApp Cloud Volumes overview</a></li>
   
 
   
@@ -462,11 +469,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Managing data with Cloud Volumes on NetApp HCI
+  <h1 class="n-doc__component-detail-heading">Managing data with Cloud Volumes on NetApp HCI overview
     <span>
       
         <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_cv_managing.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Managing data with Cloud Volumes on NetApp HCI](https://docs.netapp.com/us-en/hci/docs/task_cv_managing.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Managing data with Cloud Volumes on NetApp HCI overview](https://docs.netapp.com/us-en/hci/docs/task_cv_managing.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -474,7 +481,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-06 17:21:19 +0000">12/06/2019</time>
+<time datetime="2019-12-09 14:32:51 +0000">12/09/2019</time>
 
 
 <span>Contributors
@@ -496,6 +503,18 @@
 <div class="paragraph lead">
 <p>Using Fabric Orchestrator, you can create and manage cloud volumes anywhere using a single interface, whether you need them to reside on a private cloud or many public clouds.</p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp HCI, you automatically have access to the Preview environment.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -504,6 +523,16 @@
 <div class="paragraph">
 <p>Before you use Cloud Volumes on NetApp HCI, you must enable the service using the NetApp Hybrid Cloud Control.<br>
 See information on <a href="task_deploying_overview.html">deploying cloud services on NetApp HCI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="workflow-overview">Workflow overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To create and manage cloud volumes using Fabric Orchestrator, do the following:<br>
+* <a href="task_fo_accessing.html">Access Fabric Orchestrator</a> on NetApp Cloud Central.<br>
+* <a href="task_dfo_creating_cloud_volumes.html">Create Cloud Volumes on NetApp HCI</a> using Fabric Orchestrator.</p>
 </div>
 <h2 id="find-more-information" class="discrete">Find more information</h2>
 <div class="ulist">

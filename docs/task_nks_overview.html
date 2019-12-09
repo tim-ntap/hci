@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Signing up for a Cloud Central account | NetApp Cloud Docs</title>
+  <title>Managing Kubernetes clusters on NetApp HCI overview | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Signing up for a Cloud Central account | NetApp Cloud Docs" />
+  <meta property="og:title" content="Managing Kubernetes clusters on NetApp HCI overview | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/hci/docs/task_cloudcentral_signup.html" />
-	<meta property="og:description" content="You can log in to NetApp HCI from any web browser that has a connection to the NetApp HCI system." />
+	<meta property="og:url" content="https://docs.netapp.com/hci/docs/task_nks_overview.html" />
+	<meta property="og:description" content="You can create Kubernetes clusters on NetApp HCI using the NetApp Kubernetes Service." />
   <meta property="og:image" content="https://docs.netapp.com/hci/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="You can log in to NetApp HCI from any web browser that has a connection to the NetApp HCI system.">
-  <meta name="keywords" content=" netapp, hci, on premise, cloud services">
+  <meta name="description" content="You can create Kubernetes clusters on NetApp HCI using the NetApp Kubernetes Service.">
+  <meta name="keywords" content=" netapp, hci, on premise, cloud services, cloud volumes, kubernetes">
   
   
 
@@ -354,7 +354,7 @@
   
 
   
-    <li class="active"><a href="task_cloudcentral_signup.html">Signing up for a Cloud Central account</a></li>
+    <li><a href="task_cloudcentral_signup.html">Signing up for a Cloud Central account</a></li>
   
 
   
@@ -402,7 +402,7 @@
         
 
   
-    <li><a href="task_nks_overview.html">Managing Kubernetes clusters on NetApp HCI overview</a></li>
+    <li class="active"><a href="task_nks_overview.html">Managing Kubernetes clusters on NetApp HCI overview</a></li>
   
 
   
@@ -469,11 +469,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Signing up for a Cloud Central account
+  <h1 class="n-doc__component-detail-heading">Managing Kubernetes clusters on NetApp HCI overview
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_cloudcentral_signup.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Signing up for a Cloud Central account](https://docs.netapp.com/us-en/hci/docs/task_cloudcentral_signup.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_nks_overview.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Managing Kubernetes clusters on NetApp HCI overview](https://docs.netapp.com/us-en/hci/docs/task_nks_overview.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -481,7 +481,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-11-13 15:02:31 +0000">11/13/2019</time>
+<time datetime="2019-12-06 19:16:35 +0000">12/06/2019</time>
 
 
 <span>Contributors
@@ -501,31 +501,28 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Before you enable cloud services on NetApp HCI, you must have a Cloud Central account.</p>
+<p>Using the NetApp Kubernetes Service (NKS) on Cloud Central, you can create and manage Kubernetes clusters anywhere using a single interface, whether you need them to reside on a private cloud or many public clouds.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="steps">Steps</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Go to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>.</p>
-</li>
-<li>
-<p>Click <strong>Sign Up</strong>.</p>
-</li>
-<li>
-<p>Enter a valid business email address and choose a password.</p>
-</li>
-<li>
-<p>Enter your company name and your full name.</p>
-</li>
-<li>
-<p>Accept the terms and conditions and click <strong>Sign Up</strong>.</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Before you use the NetApp Kubernetes Service, you must enable it using the NetApp Hybrid Cloud Control.<br>
+See information on <a href="task_deploying_overview.html">deploying cloud services on NetApp HCI</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="workflow-overview">Workflow overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To create and manage clusters using the NetApp Kubernetes Service, do the following:<br>
+* <a href="task_nks_accessing.html">Access the NetApp Kubernetes Service</a> on NetApp Cloud Central.<br>
+* <a href="task_nks_create_cluster.html">Create a cluster on NetApp HCI</a> using the NetApp Kubernetes Service.<br>
+* <a href="task_nks_creating_projects.html">Create a project within a workspace</a> in the NetApp Kubernetes Service.<br>
+* <a href="task_nks_adding_applications.html">Add applications or solutions to your clusters</a> in the NetApp Kubernetes Service.</p>
 </div>
 <h2 id="find-more-information" class="discrete">Find more information</h2>
 <div class="ulist">
@@ -534,7 +531,10 @@
 <p><a href="https://cloud.netapp.com/home" target="_blank" rel="noopener">NetApp Cloud Central</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud/">NetApp Cloud Documentation</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud/" target="_blank" rel="noopener">NetApp Cloud Documentation</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/kubernetes-service/" target="_blank" rel="noopener">NetApp Kubernetes Service Documentation</a></p>
 </li>
 </ul>
 </div>

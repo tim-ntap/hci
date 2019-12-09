@@ -71,7 +71,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_licensing.html</loc>
       
-      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      <lastmod>2019-12-09T14:32:51+00:00</lastmod>
       
     </url>
   
@@ -85,21 +85,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_overview.html</loc>
       
-      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      <lastmod>2019-12-06T19:16:35+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_types_cloudservices.html</loc>
       
-      <lastmod>2019-11-20T20:40:34+00:00</lastmod>
+      <lastmod>2019-12-06T19:16:35+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/</loc>
       
-      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      <lastmod>2019-12-06T19:16:35+00:00</lastmod>
       
     </url>
   
@@ -148,21 +148,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/search.html</loc>
       
-      <lastmod>2019-12-06T17:54:43+00:00</lastmod>
+      <lastmod>2019-12-09T14:54:59+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/solutions/search.html</loc>
       
-      <lastmod>2019-12-06T17:54:43+00:00</lastmod>
+      <lastmod>2019-12-09T14:54:59+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci//search.html</loc>
       
-      <lastmod>2019-12-06T17:54:33+00:00</lastmod>
+      <lastmod>2019-12-09T14:54:46+00:00</lastmod>
       
     </url>
   
@@ -190,7 +190,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_cv_managing.html</loc>
       
-      <lastmod>2019-12-06T17:21:19+00:00</lastmod>
+      <lastmod>2019-12-09T14:32:51+00:00</lastmod>
       
     </url>
   
@@ -218,7 +218,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_enabling_cloud_services.html</loc>
       
-      <lastmod>2019-11-20T20:21:27+00:00</lastmod>
+      <lastmod>2019-12-06T19:16:35+00:00</lastmod>
       
     </url>
   
@@ -261,6 +261,13 @@
       <loc>https://docs.netapp.com/us-en/hci/docs/task_nks_creating_projects.html</loc>
       
       <lastmod>2019-12-06T17:21:19+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_nks_overview.html</loc>
+      
+      <lastmod>2019-12-06T19:16:35+00:00</lastmod>
       
     </url>
   
