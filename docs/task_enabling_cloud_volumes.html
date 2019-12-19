@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Creating cloud volumes using Cloud Volumes Service | NetApp Cloud Docs</title>
+  <title>Enabling Cloud Volumes on NetApp HCI after NKS is already enabled | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Creating cloud volumes using Cloud Volumes Service | NetApp Cloud Docs" />
+  <meta property="og:title" content="Enabling Cloud Volumes on NetApp HCI after NKS is already enabled | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/hci/docs/task_cvs_create_cloud_volumes.html" />
-	<meta property="og:description" content="Create cloud volumes using Cloud Volumes Service." />
+	<meta property="og:url" content="https://docs.netapp.com/hci/docs/task_enabling_cloud_volumes.html" />
+	<meta property="og:description" content="Using the cloud services wizard in NetApp Hybrid Cloud Control, you can enable cloud services for NetApp HCI." />
   <meta property="og:image" content="https://docs.netapp.com/hci/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="Create cloud volumes using Cloud Volumes Service.">
-  <meta name="keywords" content=" netapp, hci, on premise, cloud services, cloud volumes">
+  <meta name="description" content="Using the cloud services wizard in NetApp Hybrid Cloud Control, you can enable cloud services for NetApp HCI.">
+  <meta name="keywords" content=" netapp, hci, on premise, cloud volumes, hybrid cloud control, fabric orchestrator">
   
   
 
@@ -395,7 +395,7 @@
   
 
   
-    <li><a href="task_enabling_cloud_volumes.html">Enabling Cloud Volumes after NKS is already enabled</a></li>
+    <li class="active"><a href="task_enabling_cloud_volumes.html">Enabling Cloud Volumes after NKS is already enabled</a></li>
   
 
 
@@ -482,11 +482,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Creating cloud volumes using Cloud Volumes Service
+  <h1 class="n-doc__component-detail-heading">Enabling Cloud Volumes on NetApp HCI after NKS is already enabled
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_cvs_create_cloud_volumes.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Creating cloud volumes using Cloud Volumes Service](https://docs.netapp.com/us-en/hci/docs/task_cvs_create_cloud_volumes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_enabling_cloud_volumes.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Enabling Cloud Volumes on NetApp HCI after NKS is already enabled](https://docs.netapp.com/us-en/hci/docs/task_enabling_cloud_volumes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -494,7 +494,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-08-19 19:34:01 +0000">08/19/2019</time>
+<time datetime="2019-12-19 01:01:18 +0000">12/19/2019</time>
 
 
 <span>Contributors
@@ -511,76 +511,211 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>After you create your Kubernetes cluster, you typically want to add cloud volumes to the cluster.<br>
-These cloud volumes will reside on NetApp HCI.</p>
+<p>After you enable NetApp Kubernetes Service (NKS) on NetApp HCI, you might want to later enable the Cloud Volumes on NetApp HCI.</p>
+</div>
+<div class="paragraph">
+<p>Enabling cloud services is performed using the NetApp Hybrid Cloud Control.</p>
 </div>
 <div class="paragraph">
 <div class="title">About this task</div>
-<p>You can access NetApp Cloud Volumes Service in several ways:<br>
-*	Directly from NetApp Kubernetes Service<br>
-*	From NetApp Cloud Central<br>
-*	From any NetApp Cloud service</p>
+<p>This lets you use Cloud Volumes on NetApp HCI on your on-premises private cloud.</p>
 </div>
+<div class="paragraph">
+<p>A NetApp Hybrid Cloud Control wizard takes you through the following tasks:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the Cloud Volumes service you want to enable.</p>
+</li>
+<li>
+<p>Enable licenses using a link to the NetApp License Generator.</p>
+</li>
+<li>
+<p>Configure networking.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="signing-in-to-netapp-cloud-central">Signing in to NetApp Cloud Central</h2>
+<div class="sectionbody">
 <div class="olist arabic">
-<div class="title">Steps</div>
 <ol class="arabic">
 <li>
-<p>Open a web browser and log in to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>.</p>
-</li>
-<li>
-<p>Access the NetApp Kubernetes Service.</p>
-</li>
-<li>
-<p>From the NetApp Kubernetes Service, click the <strong>NetApp</strong> icon in the upper left to show the NetApp Cloud Central services list.</p>
+<p>Access NetApp Hybrid Cloud Control (HCC) by opening a web browser and browsing to the IP address of the management node:<br>
+"https://&lt;_ManagementNodeIP_&gt;"</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/hcc_topbar.png" alt="NetApp Hybrid Cloud Control options image">
+</div>
+</div>
 <div class="paragraph">
-<p><span class="image"><img src="../media/cvs_cloud_central_menu.png" alt="NetApp Cloud Central menu image"></span></p>
+<p>For details, see <a href="http://docs.netapp.com/hci/topic/com.netapp.doc.hci-ude-170/GUID-6FC998B8-C6D4-48CF-A1A4-A762CC19092C.html" target="_blank" rel="noopener">Accessing NetApp Hybrid Cloud Control</a>.</p>
 </div>
 </li>
 <li>
-<p>Click <strong>Cloud Volumes Service</strong>.<br>
-+ The Cloud Volumes Service Volumes page appears:<br>
-<span class="image"><img src="../media/cvs_volumes_page.png" alt="NetApp Cloud Volumes Service - Volumes page image"></span></p>
+<p>Click the <strong>Cloud</strong> icon.</p>
+<div class="paragraph">
+<p>An outline of a cloud indicates that no services have been enabled. A filled in cloud indicates that some services have been enabled. This image shows that NKS has already been enabled, but Cloud Volumes has not yet been enabled.</p>
+</div>
 </li>
 <li>
-<p>Click <strong>Create New Volume</strong>.</p>
+<p>In the Cloud Services popup, review the services that are available.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/hcc_cloudpopup_nks_enabled2.png" alt="NetApp HCC Enable cloud services popup showing NKS enabled">
+</div>
+</div>
 </li>
 <li>
-<p>On the Volumes page, review the hover text for each field and enter or select the following:</p>
+<p>Click <strong>Enable cloud services</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="selecting-the-cloud-services-you-want-to-enable">Selecting the Cloud Services you want to enable</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>SERVICES and INFORMATION ARE PROVIDED as a TECHNOLOGY PREVIEW. You might see a different set of services than those listed here.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On the Services page, select the services that you want to enable.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>NetApp Kubernetes Service</strong>: This is enabled already. You must use NetApp Kubernetes Service, a SaaS platform that enables you to deploy a Kubernetes cluster in the cloud with the major cloud providers and also with a NetApp private cloud. This is required to enable cloud services on NetApp HCI. This service is installed as a VM on a NetApp HCI compute node.</p>
+</li>
+<li>
+<p><strong>Cloud Volumes</strong>: To install Cloud Volumes on NetApp HCI, select this service. This service offers an on-demand shared file systems feature on your premises. The Cloud Volumes option will enable Data Fabric replication to and from public clouds.</p>
+</li>
+<li>
+<p><strong>Cloud Insights</strong>: This option will enable you to monitor cloud services on NetApp HCI. <em>Coming soon</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Continue</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="entering-license-information">Entering license information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you enabled Cloud Volumes, a Licensing page appears.<br>
+The NetApp license files use the following format:<br>
+NLF&lt;serialnumber&gt;.txt</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you already have obtained license files, click <strong>Browse</strong> to locate them.<br>
+Select both licenses and click <strong>Choose</strong> so they can be uploaded.</p>
+</li>
+<li>
+<p>If you have not obtained license files, complete the following to obtain or retrieve them:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Enter the volume name, service level, and time zone for the volume.</p>
+<p>Serial number information is provided in an email after ordering software. Go to the <a href="https://mysupport.netapp.com" target="_blank" rel="noopener">NetApp Support Site</a>, click <strong>Products</strong> &gt; <strong>Software Licenses</strong>, and<br>
+enter product and serial number.</p>
 </li>
 <li>
-<p>For the provider, choose <strong>NetApp Private Cloud</strong>.</p>
+<p>Return to the Hybrid Cloud Control Licensing page, click the link to the NetApp License File Generator, supply your password, select “ONTAP Select-Premium” as the product line, and supply the product serial number that you obtained from the NetApp Support Site.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/hcc_nks_enabled_licensing_for_cv.png" alt="Enable Cloud Services Licensing page for Cloud Volumes only">
+</div>
+</div>
 </li>
 <li>
-<p>Choose the region.</p>
+<p>Acknowledge the Global Data Privacy Policy and click <strong>Submit</strong>.</p>
+</li>
+<li>
+<p>Download the license files either directly from the NetApp License File Generator or from the email.</p>
+</li>
+<li>
+<p>Do this twice for the two licenses, one for each of the HA clusters.</p>
+</li>
+<li>
+<p>You can now upload the license files. In the Licensing page, click <strong>Browse</strong> to locate both license files that you downloaded. Select both licenses and click <strong>Choose</strong> to upload them.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>Click <strong>Create Cloud Volume</strong>.</p>
+<p>Click <strong>Continue</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="selecting-networking-options">Selecting networking options</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you enabled Cloud Volumes on the Services page, the following additional fields appear:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cloud Volumes Management Network</strong>: Enter the IP addresses for managing the Cloud Volumes deployment VM and its deployed nodes. These IP addresses are used during the installation to configure Cloud Volumes enablement.</p>
+</li>
+<li>
+<p><strong>Cloud Volumes Cluster Network</strong>: Enter network information used by the cluster nodes used by Cloud Volumes deployment to communicate with each other.</p>
+</li>
+<li>
+<p><strong>Cloud Volumes Storage Network</strong>: Enter network information to serve data from Cloud Volumes on NetApp HCI. This will become the network from which you access provisioned<br>
+cloud volumes.</p>
+<div class="paragraph">
+<p><span class="image"><img src="../media/hcc_enablecloudservices_networking_only_CV.png" alt="NetApp Hybrid Cloud Control Networking page"></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>On the Review page, review your choices by expanding each option. and click <strong>Continue</strong>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<div class="title">Results</div>
-<p>The volume appears in the Volumes page showing the NetApp icon in the Provider column.</p>
+<div class="title">Result</div>
+<p>Cloud Volumes on NetApp HCI are enabled and the NetApp Hybrid Cloud Control opening page reappears.</p>
 </div>
 <div class="paragraph">
-<p>For details, see NetApp Cloud Volumes Services information about creating cloud volumes.</p>
+<p>Click the cloud icon to see the number of services enabled.<br>
+The process can take up to 30 minutes for Cloud Volumes on NetApp HCI.</p>
 </div>
-<h2 id="top-links" class="discrete">Top Links</h2>
+</div>
+</div>
+<div class="sect1">
+<h2 id="after-you-finish">After you finish</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To create cloud volumes, create custom data management workflows, and manage data across volumes, use NetApp Fabric Orchestrator. See <a href="task_cv_managing">Managing data in NetApp Cloud Volumes</a>.</p>
+</div>
+<h2 id="top-link" class="discrete">Top Link</h2>
 <div class="ulist">
 <ul>
 <li>
 <p><a href="task_deploying_overview.html">Deploying cloud services on NetApp HCI overview</a></p>
-</li>
-<li>
-<p><a href="concept_architecture_cloudinsights.html">Real-time analytics with NetApp Cloud Insights</a></p>
 </li>
 </ul>
 </div>
@@ -591,15 +726,11 @@ These cloud volumes will reside on NetApp HCI.</p>
 <p><a href="https://cloud.netapp.com/home" target="_blank" rel="noopener">NetApp Cloud Central</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud/">NetApp Cloud Documentation</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/hybridcloudsolutions/" target="_blank" rel="noopener">Hybrid Cloud Solutions documentation</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">Cloud Insights documentation</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud/" target="_blank" rel="noopener">NetApp Cloud Documentation</a></p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 
         </article>

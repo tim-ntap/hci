@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Creating cloud volumes using Cloud Volumes Service | NetApp Cloud Docs</title>
+  <title>Storage classes with NetApp Kubernetes Service on NetApp HCI | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Creating cloud volumes using Cloud Volumes Service | NetApp Cloud Docs" />
+  <meta property="og:title" content="Storage classes with NetApp Kubernetes Service on NetApp HCI | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/hci/docs/task_cvs_create_cloud_volumes.html" />
-	<meta property="og:description" content="Create cloud volumes using Cloud Volumes Service." />
+	<meta property="og:url" content="https://docs.netapp.com/hci/docs/reference_nks_storageclasses.html" />
+	<meta property="og:description" content="Before you begin using cloud services on NetApp HCI, look at these prerequisites." />
   <meta property="og:image" content="https://docs.netapp.com/hci/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +17,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="Create cloud volumes using Cloud Volumes Service.">
-  <meta name="keywords" content=" netapp, hci, on premise, cloud services, cloud volumes">
+  <meta name="description" content="Before you begin using cloud services on NetApp HCI, look at these prerequisites.">
+  <meta name="keywords" content=" netapp, hci, kubernetes, nks, storage class, on premise, cloud services">
   
   
 
@@ -427,7 +427,7 @@
   
 
   
-    <li><a href="reference_nks_storageclasses.html">Storage classes on NetApp Kubernetes Service</a></li>
+    <li class="active"><a href="reference_nks_storageclasses.html">Storage classes on NetApp Kubernetes Service</a></li>
   
 
   
@@ -482,11 +482,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Creating cloud volumes using Cloud Volumes Service
+  <h1 class="n-doc__component-detail-heading">Storage classes with NetApp Kubernetes Service on NetApp HCI
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_cvs_create_cloud_volumes.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Creating cloud volumes using Cloud Volumes Service](https://docs.netapp.com/us-en/hci/docs/task_cvs_create_cloud_volumes.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/reference_nks_storageclasses.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Storage classes with NetApp Kubernetes Service on NetApp HCI](https://docs.netapp.com/us-en/hci/docs/reference_nks_storageclasses.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -494,7 +494,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-08-19 19:34:01 +0000">08/19/2019</time>
+<time datetime="2019-12-19 00:31:53 +0000">12/19/2019</time>
 
 
 <span>Contributors
@@ -511,78 +511,120 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
-<p>After you create your Kubernetes cluster, you typically want to add cloud volumes to the cluster.<br>
-These cloud volumes will reside on NetApp HCI.</p>
+<p>After you enable cloud services on NetApp HCI and enable NetApp Kubernetes Service (NKS), Kubernetes storage classes are created.</p>
 </div>
 <div class="paragraph">
-<div class="title">About this task</div>
-<p>You can access NetApp Cloud Volumes Service in several ways:<br>
-*	Directly from NetApp Kubernetes Service<br>
-*	From NetApp Cloud Central<br>
-*	From any NetApp Cloud service</p>
+<p>When you add applications in NKS, you need to know the storage class and its provisioner.</p>
 </div>
-<div class="olist arabic">
-<div class="title">Steps</div>
-<ol class="arabic">
-<li>
-<p>Open a web browser and log in to <a href="https://cloud.netapp.com" target="_blank" rel="noopener">NetApp Cloud Central</a>.</p>
-</li>
-<li>
-<p>Access the NetApp Kubernetes Service.</p>
-</li>
-<li>
-<p>From the NetApp Kubernetes Service, click the <strong>NetApp</strong> icon in the upper left to show the NetApp Cloud Central services list.</p>
+</div>
+</div>
+<div class="sect1">
+<h2 id="storage-classes-with-nks">Storage classes with NKS</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p><span class="image"><img src="../media/cvs_cloud_central_menu.png" alt="NetApp Cloud Central menu image"></span></p>
+<p>The following table lists the storage classes and the associated provisioners and IOPS values.</p>
 </div>
-</li>
-<li>
-<p>Click <strong>Cloud Volumes Service</strong>.<br>
-+ The Cloud Volumes Service Volumes page appears:<br>
-<span class="image"><img src="../media/cvs_volumes_page.png" alt="NetApp Cloud Volumes Service - Volumes page image"></span></p>
-</li>
-<li>
-<p>Click <strong>Create New Volume</strong>.</p>
-</li>
-<li>
-<p>On the Volumes page, review the hover text for each field and enter or select the following:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Enter the volume name, service level, and time zone for the volume.</p>
-</li>
-<li>
-<p>For the provider, choose <strong>NetApp Private Cloud</strong>.</p>
-</li>
-<li>
-<p>Choose the region.</p>
-</li>
-</ol>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 26.3157%;">
+<col style="width: 26.3157%;">
+<col style="width: 15.7894%;">
+<col style="width: 15.7894%;">
+<col style="width: 15.7898%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Storage class</th>
+<th class="tableblock halign-left valign-top">Provisioner</th>
+<th class="tableblock halign-left valign-top">IOPS minimum</th>
+<th class="tableblock halign-left valign-top">IOPS maximum</th>
+<th class="tableblock halign-left valign-top">IOPS burst</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">solidfire-bronze</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">netapp.io/trident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">solidfire-silver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">netapp.io/trident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25,000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40,000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">solidfire-gold</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">netapp.io/trident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15,000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">180,000</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200,000</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">vsphere (default)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">kubernetes.io/vsphere-volume</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NA</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</li>
-<li>
-<p>Click <strong>Create Cloud Volume</strong>.</p>
-</li>
-</ol>
 </div>
+<div class="sect1">
+<h2 id="storage-class-impact">Storage class impact</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<div class="title">Results</div>
-<p>The volume appears in the Volumes page showing the NetApp icon in the Provider column.</p>
+<p>Storage classes affect storage pools, QoS values, and persistent volume claims in the following ways:</p>
 </div>
-<div class="paragraph">
-<p>For details, see NetApp Cloud Volumes Services information about creating cloud volumes.</p>
-</div>
-<h2 id="top-links" class="discrete">Top Links</h2>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="task_deploying_overview.html">Deploying cloud services on NetApp HCI overview</a></p>
+<p>Each NetApp Element storage class uses a unique storage pool.</p>
 </li>
 <li>
-<p><a href="concept_architecture_cloudinsights.html">Real-time analytics with NetApp Cloud Insights</a></p>
+<p>Storage pools are identified by a set of unique QoS (IOPS) values.</p>
+</li>
+<li>
+<p>When a Persistent Volume Claim (PVC) uses one of the "solidfire" storage classes, a volume within the referred storage pool is created on Element.</p>
+</li>
+<li>
+<p>Trident creates the PV with the storage class and the storage pool attributes.</p>
+</li>
+<li>
+<p>Kubernetes mounts the volume to the pod.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="example-of-pvc-using-a-storage-class">Example of PVC using a storage class</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This example shows a volume created with the <em>solidfire-gold</em> storage class IOPS values on Element.<br>
+When a pod uses this PVC, the new volume with the <em>solidfire-gold</em> IOPS values is mounted to the pod.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+      name: pvcclaim-gold
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+	requests:
+	  storage: 10Gi
+  storageClassName: solidfire-gold</pre>
+</div>
 </div>
 <h2 id="find-more-information" class="discrete">Find more information</h2>
 <div class="ulist">
@@ -594,12 +636,11 @@ These cloud volumes will reside on NetApp HCI.</p>
 <p><a href="https://docs.netapp.com/us-en/cloud/">NetApp Cloud Documentation</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/hybridcloudsolutions/" target="_blank" rel="noopener">Hybrid Cloud Solutions documentation</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">Cloud Insights documentation</a></p>
+<p><a href="http://docs.netapp.com/hci/index.jsp">NetApp HCI Documentation Center</a></p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 
         </article>

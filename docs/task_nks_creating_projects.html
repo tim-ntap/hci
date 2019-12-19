@@ -80,11 +80,13 @@
   <script src='/hci/js/customscripts.js'></script>
 
   <script>
+    var collapseOnInit = true;
+    
       $(document).ready(function() {
           // Initialize navgoco with default options
           $("#mysidebar").navgoco({
               caretHtml: '',
-              accordion: true,
+              accordion: collapseOnInit,
               openClass: 'active', // open
               save: false, // leave false or nav highlighting doesn't work right
               cookie: {
@@ -97,6 +99,9 @@
                   easing: 'swing'
               }
           });
+          if(!collapseOnInit) {
+            $("#mysidebar").navgoco('toggle', true);
+          }
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -389,6 +394,10 @@
     <li><a href="task_enabling_cloud_services.html">Enabling cloud services using NetApp Hybrid Cloud Control</a></li>
   
 
+  
+    <li><a href="task_enabling_cloud_volumes.html">Enabling Cloud Volumes after NKS is already enabled</a></li>
+  
+
 
       </ul>
     </li>
@@ -415,6 +424,10 @@
 
   
     <li class="active"><a href="task_nks_creating_projects.html">Creating a project within your Kubernetes workspace</a></li>
+  
+
+  
+    <li><a href="reference_nks_storageclasses.html">Storage classes on NetApp Kubernetes Service</a></li>
   
 
   
@@ -633,6 +646,9 @@
               </div>
               <div class="n-footer__copyright">
                 <a target="_self" class="n-footer__copyright-link" href="javascript:netapp_mailto()">Email your feedback</a>
+              </div>
+              <div class="n-footer__copyright">
+                <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright-link">Announcements</a>
               </div>
             </div>
           </div>
