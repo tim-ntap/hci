@@ -77,28 +77,30 @@
   <script src='/hci/us-en/js/customscripts.js'></script>
 
   <script>
-    var collapseOnInit = true;
-    
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: collapseOnInit,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
-          if(!collapseOnInit) {
-            $("#mysidebar").navgoco('toggle', true);
-          }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -328,7 +330,7 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-19 23:19:59 +0000">12/19/2019</time>
+<time datetime="2020-01-06 19:41:57 +0000">01/06/2020</time>
 
 
 <span>Contributors
@@ -359,7 +361,7 @@
           <div class="n-container">
             <div class="n-footer__bottom-left">
               <div class="n-footer__copyright">
-                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2020 NetApp, Inc.</a>
               </div>
               <div class="n-footer__copyright">
                 <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>

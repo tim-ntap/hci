@@ -80,28 +80,30 @@
   <script src='/hci/js/customscripts.js'></script>
 
   <script>
-    var collapseOnInit = true;
-    
       $(document).ready(function() {
-          // Initialize navgoco with default options
-          $("#mysidebar").navgoco({
-              caretHtml: '',
-              accordion: collapseOnInit,
-              openClass: 'active', // open
-              save: false, // leave false or nav highlighting doesn't work right
-              cookie: {
-                  name: 'navgoco',
-                  expires: false,
-                  path: '/'
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
               },
-              slide: {
-                  duration: 400,
-                  easing: 'swing'
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
               }
-          });
-          if(!collapseOnInit) {
-            $("#mysidebar").navgoco('toggle', true);
-          }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
 
           $("#collapseAll").click(function(e) {
               e.preventDefault();
@@ -379,27 +381,7 @@
         
 
   
-    <li><a href="https://www.netapp.com/us/media/tr-4792.pdf" target="_blank">VMware Horizon 7 with 3D Graphics</a></li>
-  
-
-  
-    <li><a href="https://www.netapp.com/us/media/nva-1132-design.pdf" target="_blank">VMware EUC (Design Guide)</a></li>
-  
-
-  
-    <li><a href="https://www.netapp.com/us/media/nva-1132-deploy.pdf" target="_blank">VMware EUC (Deployment Guide)</a></li>
-  
-
-  
-    <li><a href="https://www.netapp.com/us/media/nva-1129-design.pdf" target="_blank">VMware EUC with NVIDA GPUs (Design Guide)</a></li>
-  
-
-  
-    <li><a href="https://www.netapp.com/us/media/nva-1129-deploy.pdf" target="_blank">VMware EUC with NVIDA GPUs (Deployment Guide)</a></li>
-  
-
-  
-    <li><a href="https://www.netapp.com/us/media/tr-4630.pdf" target="_blank">VMware Horizon View 7</a></li>
+    <li><a href="nhci_euc_vmware.html">EUC with VMware Horizon</a></li>
   
 
   
@@ -610,7 +592,7 @@
           <div class="n-container">
             <div class="n-footer__bottom-left">
               <div class="n-footer__copyright">
-                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2019 NetApp, Inc.</a>
+                  <a href="//www.netapp.com/us/legal/copyright.aspx" class="n-footer__copyright-link">© 2020 NetApp, Inc.</a>
               </div>
               <div class="n-footer__copyright">
                 <a href="//www.netapp.com/us/legal/index.aspx" class="n-footer__copyright-link">Legal</a>

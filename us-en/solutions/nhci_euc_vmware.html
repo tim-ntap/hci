@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <title>Licensing requirements | NetApp Cloud Docs</title>
+  <title>End User Computing on NetApp HCI with VMware | NetApp Cloud Docs</title>
   <meta charset="utf-8">
-  <meta property="og:title" content="Licensing requirements | NetApp Cloud Docs" />
+  <meta property="og:title" content="End User Computing on NetApp HCI with VMware | NetApp Cloud Docs" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/hci/docs/concept_licensing.html" />
-	<meta property="og:description" content="Before you begin using Cloud Volumes on NetApp HCI, you will need to obtain licenses.." />
-  <meta property="og:image" content="https://docs.netapp.com/hci/images/logo-tophat-social.png" />
+	<meta property="og:url" content="https://docs.netapp.com/hci/us-en/solutions/nhci_euc_vmware.html" />
+	<meta property="og:description" content="An introduction to End User Computing on NetApp HCI with VMware" />
+  <meta property="og:image" content="https://docs.netapp.com/hci/us-en/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
@@ -17,17 +17,17 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="Before you begin using Cloud Volumes on NetApp HCI, you will need to obtain licenses..">
-  <meta name="keywords" content=" netapp, hci, kubernetes, on premise, cloud services, cluster">
+  <meta name="description" content="An introduction to End User Computing on NetApp HCI with VMware">
+  <meta name="keywords" content=" hci, euc, vmware, horizon, vdi">
   
   
 
   <!-- Icons -->
-  <link rel="icon" href="/hci/images/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/hci/us-en/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed -->
   
-  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/hci/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="NetApp Cloud Docs" href="/hci/us-en/feed.xml">
   
 
   <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -36,23 +36,23 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
   <!-- LUCI CSS Content -->
-  <link rel="stylesheet" href="/hci/common/css/esb.min.css">
-  <link rel="stylesheet" href="/hci/common/css/netapp-library.min.css">
-  <link rel="stylesheet" href="/hci/common/css/doc.css">
-  <link rel="stylesheet" href="/hci/common/css/doc-components.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/esb.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/netapp-library.min.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc.css">
+  <link rel="stylesheet" href="/hci/us-en/common/css/doc-components.css">
 
-  <link rel="stylesheet" href='/hci/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/hci/css/na-search.css' type='text/css'>
-  <link rel='stylesheet' href='/hci/css/clouddocs.css' type='text/css'>
+  <link rel="stylesheet" href='/hci/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/na-search.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/clouddocs.css' type='text/css'>
 
   <!-- Font awesome seems to affect our GitHub Icon and generic "arrow box" for external links. -->
-  <link rel="stylesheet" type="text/css" href="/hci/css/font-awesome.min.css">
-  <!-- <link rel="stylesheet" href="/hci/css/customstyles.css"> -->
+  <link rel="stylesheet" type="text/css" href="/hci/us-en/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="/hci/us-en/css/customstyles.css"> -->
   <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/hci/css/boxshadowproperties.css">
+  <link rel="stylesheet" href="/hci/us-en/css/boxshadowproperties.css">
 
   <!-- NetApp CSS controls the technical content -->
-  <link rel='stylesheet' href='/hci/css/netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/netapp.css' type='text/css'>
 
   
 
@@ -61,23 +61,23 @@
   <!-- Used to import Promise for IE. Required for SearchKit -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
   
-    <script src='/hci/js/na-search.js'></script>
+    <script src='/hci/us-en/js/na-search.js'></script>
   
 
   
-  <link rel='stylesheet' href='/hci/css/na-pagenav.css' type='text/css' id="pagenav-css">
-  <script src='/hci/js/na-pagenav.js'></script>
+  <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css' id="pagenav-css">
+  <script src='/hci/us-en/js/na-pagenav.js'></script>
   
 
-  <link rel='stylesheet' href='/hci/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/hci/css/prism-netapp.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/prism-netapp.css' type='text/css'>
 
-  <script src='/hci/js/clouddocs.js'></script>
-  <script src='/hci/js/s_code_impl.js'></script>
-  <script src='/hci/js/jquery.navgoco.min.js'></script>
+  <script src='/hci/us-en/js/clouddocs.js'></script>
+  <script src='/hci/us-en/js/s_code_impl.js'></script>
+  <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src='/hci/js/toc.js'></script>
-  <script src='/hci/js/customscripts.js'></script>
+  <script src='/hci/us-en/js/toc.js'></script>
+  <script src='/hci/us-en/js/customscripts.js'></script>
 
   <script>
       $(document).ready(function() {
@@ -201,7 +201,7 @@
       <div class="n-property-bar__menu-toggle">
         <a href="#" class="n-property-bar__menu-toggle-link"><span class="n-property-bar__menu-toggle-text">Menu</span><svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
           <title>bars</title>
-          <use xlink:href="/hci/common/svg/sprite.svg#bars"></use>
+          <use xlink:href="/hci/us-en/common/svg/sprite.svg#bars"></use>
         </svg></a>
       </div>
       <div class="n-property-bar__property-mark n-property-bar__property-mark--has-property-name">
@@ -209,11 +209,11 @@
           <div class="n-property-bar__logo">
             <svg class="n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
               <title>netapp-mark</title>
-              <use xlink:href="/hci/common/svg/sprite.svg#netapp-mark"></use>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-mark"></use>
             </svg>
             <svg class="n-property-bar__logo-svg" aria-labelledby="title">
               <title>NetApp</title>
-              <use xlink:href="/hci/common/svg/sprite.svg#netapp-logo"></use>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-logo"></use>
             </svg>
           </div>
           <h2 class="n-property-bar__property-name">Cloud Docs</h2>
@@ -234,7 +234,7 @@
                 <span class="ie-i18n-lang">English</span>
                 <svg class="ie-i18n-icon-container" class="n-property-bar__logo-svg" aria-labelledby="title">
                   <title>globe</title>
-                  <use xlink:href="/hci/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
+                  <use xlink:href="/hci/us-en/common/svg/sprite.svg#globe" class="n-icon-globe n-globe__icon"></use>
                 </svg>
               </a>
             </li>
@@ -306,38 +306,34 @@
   
 
   
-    <li><a href="index.html">NetApp HCI Cloud Services</a></li>
+    <li><a href="index.html">NetApp HCI Solutions</a></li>
   
 
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Concepts</a>
+      <a href="#">Private Cloud</a>
       <ul>
         
 
   
-    <li><a href="concept_overview.html">Cloud services on NetApp HCI overview</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1122-design.pdf" target="_blank">VMware Private Cloud (Design Guide)</a></li>
   
 
   
-    <li><a href="concept_types_cloudservices.html">Types of cloud services on NetApp HCI</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1122-deploy.pdf" target="_blank">VMware Private Cloud (Deployment Guide)</a></li>
   
 
   
-    <li><a href="concept_architecture.html">Architecture overview for cloud services on NetApp HCI</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1128-design.pdf" target="_blank">VMware Validated Design</a></li>
   
 
   
-    <li><a href="concept_behind_the_scenes.html">What happens when you enable NetApp Kubernetes Service?</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1133-design.pdf" target="_blank">Private Cloud with Red Hat (Design Guide)</a></li>
   
 
   
-    <li><a href="concept_cluster_types.html">Cluster types in cloud services on NetApp HCI</a></li>
-  
-
-  
-    <li><a href="concept_kubernetes_pods_volumes_projects.html">Kubernetes terminology</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1133-deploy.pdf" target="_blank">Private Cloud with Red Hat (Deployment Guide)</a></li>
   
 
 
@@ -348,32 +344,28 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Prerequisites for cloud services on NetApp HCI</a>
+      <a href="#">Containers and DevOps</a>
       <ul>
         
 
   
-    <li><a href="concept_gettingstarted.html">Prerequisites overview</a></li>
+    <li><a href="nhci_devops_cicd.html">DevOps CI / CD Pipeline</a></li>
   
 
   
-    <li><a href="concept_cloud_central_accounts.html">Cloud Central accounts</a></li>
+    <li><a href="https://www.netapp.com/us/media/wp-7304.pdf" target="_blank">Infrastructure as Code with Red Hat Ansible</a></li>
   
 
   
-    <li><a href="task_cloudcentral_signup.html">Signing up for a Cloud Central account</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1124-design.pdf" target="_blank">Red Hat Openshift Container Platform (Design Guide)</a></li>
   
 
   
-    <li><a href="reference_requirements_beforeyoubegin.html">System requirements before you begin</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1124-deploy.pdf" target="_blank">Red Hat Openshift Container Platform (Deployment Guide)</a></li>
   
 
   
-    <li class="active"><a href="concept_licensing.html">Licensing</a></li>
-  
-
-  
-    <li><a href="task_getting_a_netapp_kubernetes_service_api_token.html">Getting a NetApp Kubernetes Service API token</a></li>
+    <li><a href="nhci_containers_anthos.html">NetApp HCI with Anthos</a></li>
   
 
 
@@ -384,20 +376,16 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Enabling cloud services on NetApp HCI</a>
+      <a href="#">End User Computing (EUC)</a>
       <ul>
         
 
   
-    <li><a href="task_deploying_overview.html">Deploying cloud services on NetApp HCI overview</a></li>
+    <li class="active"><a href="nhci_euc_vmware.html">EUC with VMware Horizon</a></li>
   
 
   
-    <li><a href="task_enabling_cloud_services.html">Enabling cloud services using NetApp Hybrid Cloud Control</a></li>
-  
-
-  
-    <li><a href="task_enabling_cloud_volumes.html">Enabling Cloud Volumes after NKS is already enabled</a></li>
+    <li><a href="https://www.netapp.com/us/media/nva-1140-design.pdf" target="_blank">Citrix Virtual Apps and Desktops with VMware vSphere (Design Guide)</a></li>
   
 
 
@@ -408,32 +396,24 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Enabling Kubernetes clusters on NetApp HCI</a>
+      <a href="#">Database</a>
       <ul>
         
 
   
-    <li><a href="task_nks_overview.html">Managing Kubernetes clusters on NetApp HCI overview</a></li>
+    <li><a href="https://www.netapp.com/us/media/tr-4633.pdf" target="_blank">MongoDB</a></li>
   
 
   
-    <li><a href="task_nks_accessing.html">Accessing NetApp Kubernetes Service</a></li>
+    <li><a href="https://www.netapp.com/us/media/tr-4768.pdf" target="_blank">Oracle</a></li>
   
 
   
-    <li><a href="task_NKS_create_cluster.html">Creating a Kubernetes cluster using NetApp Kubernetes Service</a></li>
+    <li><a href="https://www.netapp.com/us/media/tr-4721.pdf" target="_blank">Sybase ASE</a></li>
   
 
   
-    <li><a href="task_nks_creating_projects.html">Creating a project within your Kubernetes workspace</a></li>
-  
-
-  
-    <li><a href="reference_nks_storageclasses.html">Storage classes on NetApp Kubernetes Service</a></li>
-  
-
-  
-    <li><a href="task_NKS_adding_applications.html">Adding applications to your Kubernetes clusters</a></li>
+    <li><a href="https://www.netapp.com/us/media/tr-4638.pdf" target="_blank">SQL Server</a></li>
   
 
 
@@ -444,29 +424,59 @@
   
     <!-- Check Container -->
     <li class="subfolders">
-      <a href="#">Managing data in Cloud Volumes with NetApp Fabric Orchestrator</a>
+      <a href="#">Data Fabric</a>
       <ul>
         
 
   
-    <li><a href="task_cv_managing.html">Managing data in NetApp Cloud Volumes overview</a></li>
+    <li><a href="https://www.netapp.com/us/media/tr-4748.pdf" target="_blank">Build your Data Fabric with NetApp HCI, ONTAP and Converged Infrastructure</a></li>
   
 
   
-    <li><a href="concept_behind_the_scenes_fo.html">What happens when you enable Cloud Volumes on NetApp HCI?</a></li>
-  
-
-  
-    <li><a href="task_fo_accessing.html">Accessing NetApp Fabric Orchestrator</a></li>
-  
-
-  
-    <li><a href="task_dfo_creating_cloud_volumes.html">Creating cloud volumes with NetApp Fabric Orchestrator</a></li>
+    <li><a href="https://www.netapp.com/us/media/tr-4734.pdf" target="_blank">StorageGrid Deployment on NetApp HCI</a></li>
   
 
 
       </ul>
     </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Data Protection</a>
+      <ul>
+        
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4641.pdf" target="_blank">NetApp HCI Data Protection Overview</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/nva-1137.pdf" target="_blank">Multicloud Data Protection with Cloud Volumes ONTAP</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4795.pdf" target="_blank">Disaster Recovery and Replication with VMware SRM</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4778.pdf" target="_blank">Splunk Enterprise with Arrow Appliance</a></li>
+  
+
+  
+    <li><a href="https://www.netapp.com/us/media/tr-4634.pdf" target="_blank">Veeam Backup and Replication 9.5 v4</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+
+  
+    <li><a href="https://fieldportal.netapp.com/collections/810434" target="_blank">Solution Collection (login required)</a></li>
   
 
 
@@ -484,11 +494,11 @@
           
 
 <div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Licensing requirements
+  <h1 class="n-doc__component-detail-heading">End User Computing on NetApp HCI with VMware
     <span>
       
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/concept_licensing.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
-        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Licensing requirements](https://docs.netapp.com/us-en/hci/docs/concept_licensing.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/solutions/nhci_euc_vmware.adoc" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Edit on GitHub</a>
+        <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[End User Computing on NetApp HCI with VMware](https://docs.netapp.com/us-en/hci/solutions/nhci_euc_vmware.html)" class="btn btn-default githubEditButton" role="button"><i class="fa fa-github fa-lg"></i> Request doc changes</a>
       
     </span>
   </h1>
@@ -496,16 +506,16 @@
 
 <p class="page-details">
 
-<time datetime="2019-12-12 16:37:58 +0000">12/12/2019</time>
+<time datetime="2020-01-03 17:04:49 +0000">01/03/2020</time>
 
 
 <span>Contributors
   
-  <a target="_blank" href="https://github.com/amgrissino">
+  <a target="_blank" href="https://github.com/kevin-hoke">
     <img  class="avatar avatar-small"
-          alt="amgrissino"
+          alt="kevin-hoke"
           width="20" height="20"
-          src="https://avatars2.githubusercontent.com/u/36450105?v=4"
+          src="https://avatars2.githubusercontent.com/u/55808219?v=4"
           style="border-radius: 50%;"/>
   </a>
   
@@ -516,59 +526,55 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>Before you begin using Cloud Volumes on NetApp HCI, you will need to obtain licenses. You can obtain the licenses before or during the use of the Cloud Services wizard.</p>
+<p>Overview of the End User Computing capabilities on NetApp HCI with VMware Horizon.</p>
 </div>
 <div class="paragraph">
-<p>The Cloud Services wizard provides a link to obtain the licenses; however, you will need your software license serial numbers. You can get the serial numbers from the NetApp Support Site at mysupport.netapp.com.</p>
+<p><a href="nhci_intro.html">Learn more</a> about NetApp HCI.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="licensing-requirements-for-cloud-volumes-on-netapp-hci">Licensing requirements for Cloud Volumes on NetApp HCI</h2>
+<h2 id="end-user-computing-euc-versus-virtual-desktop-infrastructure-vdi">End User Computing (EUC) versus Virtual Desktop Infrastructure (VDI)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Because Cloud Volumes on NetApp HCI is supported by NetApp ONTAP HA clusters and each requires a license, Cloud Volumes on NetApp HCI requires two “ONTAP Select Premium” licenses.</p>
-</div>
-<div class="paragraph">
-<p>The NetApp licensing files use the following format:</p>
-</div>
-<div class="paragraph">
-<p>NLF&lt;serialnumber&gt;.txt</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp HCI, you automatically have access to the Preview environment.
-</td>
-</tr>
-</table>
+<p>Traditionally, the focus on end user computing was centered around the virtualization of desktop infrastructure, or VDI.  As VDI evolves, the focus of the conversation has shifted to the accessibility of end user applications and data.  To read more about the evolution of VDI and the industry migration to EUC, <a href="https://blog.netapp.com/vdi-vs-euc-moving-beyond-desktops-and-silos/">read the blog</a> discussing the evolution of VDI and infrastructure to EUC and application accessibility.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="licensing-requirements-for-netapp-kubernetes-service">Licensing requirements for NetApp Kubernetes Service</h2>
+<h2 id="netapp-validated-architectures-and-technical-reports">NetApp Validated Architectures and Technical Reports</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>NetApp Kubernetes Service does not require an additional license.</p>
+<p>End User Computing on NetApp HCI with VMware Horizon is a set of fully validated and supported solutions.  Details of the design and deployment considerations are documented in the NetApp Validated Architecture (NVA) documents and Technical Reports (TR).</p>
 </div>
-<div class="paragraph">
-<p>NetApp Kubernetes Service is metered and billed by the number of worker nodes in the managed Kubernetes clusters. While these Kubernetes worker nodes are virtual machines that are running on a cluster and NetApp HCI compute nodes, the number of physical compute nodes in the NetApp HCI environment are an unrelated entity for metering and billing purposes.</p>
-</div>
-<h2 id="find-more-information" class="discrete">Find more information</h2>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://cloud.netapp.com/home" target="_blank" rel="noopener">NetApp Cloud Central</a></p>
+<p><a href="https://www.netapp.com/us/media/nva-1132-design.pdf">NVA: EUC with VMware (Design Guide)</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud/" target="_blank" rel="noopener">NetApp Cloud Documentation</a></p>
+<p><a href="https://www.netapp.com/us/media/nva-1132-deploy.pdf">NVA: EUC with VMware (Deployment Guide)</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/us/media/nva-1129-design.pdf">NVA: EUC with VMware and NVIDIA GPUs (Design Guide)</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/us/media/nva-1129-deploy.pdf">NVA: EUC with VMware and NVIDIA GPUs(Deployment Guide)</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/us/media/tr-4792.pdf">TR: EUC with VMware for 3D Graphics</a></p>
+</li>
+<li>
+<p><a href="https://www.netapp.com/us/media/tr-4630.pdf">TR: EUC with VMware Horizon 7</a></p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="additional-material">Additional Material</h2>
+<div class="sectionbody">
+
 </div>
 </div>
 
@@ -610,7 +616,7 @@ Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp 
                       <span class="n-footer__social-link-text">blog</span>
                       <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
                         <title>blog@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/common/svg/sprite.svg#blog"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#blog"></use>
                       </svg>
                     </a>
                   </li>
@@ -619,7 +625,7 @@ Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp 
                       <span class="n-footer__social-link-text">community</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>community@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/common/svg/sprite.svg#comments"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#comments"></use>
                       </svg>
                     </a>
                   </li>
@@ -629,7 +635,7 @@ Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp 
                       <span class="n-footer__social-link-text">twitter</span>
                       <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
                         <title>twitter@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/common/svg/sprite.svg#twitter"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#twitter"></use>
                       </svg>
                     </a>
                   </li>
@@ -638,7 +644,7 @@ Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp 
                       <span class="n-footer__social-link-text">youtube</span>
                       <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
                         <title>youtube@</title>
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/common/svg/sprite.svg#youtube"></use>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#youtube"></use>
                       </svg>
                     </a>
                   </li>
@@ -662,15 +668,15 @@ Fabric Orchestrator is in Preview mode. When you enable Cloud Volumes on NetApp 
 
     </div>
 
-    <script src="/hci/common/js/components.js"></script>
-    <script src="/hci/common/js/doc-components.js"></script>
+    <script src="/hci/us-en/common/js/components.js"></script>
+    <script src="/hci/us-en/common/js/doc-components.js"></script>
 
     <!-- Elasticsearch JS -->
-    <script type="text/javascript" src='/hci/js/bundle.js'></script>
+    <script type="text/javascript" src='/hci/us-en/js/bundle.js'></script>
 
     <!-- Syntax Highlighting -->
-    <script type="text/javascript" src='/hci/js/prism.js'></script>
-    <script type="text/javascript" src='/hci/js/prism-curl.js'></script>
+    <script type="text/javascript" src='/hci/us-en/js/prism.js'></script>
+    <script type="text/javascript" src='/hci/us-en/js/prism-curl.js'></script>
 
   </body>
 
