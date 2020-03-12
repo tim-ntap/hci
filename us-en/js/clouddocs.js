@@ -7,7 +7,7 @@ function netapp_mailto(subjectType) {
   }
 
   var email = "doccomments@netapp.com";
-  var loc = email + "?subject=clouddocs_feedback:%20" + pageurl;
+  var loc = email + "?subject=saasdocs_feedback:%20" + pageurl;
   window.location = "mailto:" + loc;
 }
 
@@ -68,7 +68,7 @@ function standardizeUrl(siteLocales, originUrl, proxyUrl) {
 
 // Handles the Anchor Tags with Fixed Header
 $(document).ready(function() {
-	const OFFSET = 165;
+	const OFFSET = 216;
 	$('a[href*=#]:not([href=#])').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
 			&& location.hostname == this.hostname) {
@@ -97,27 +97,27 @@ $(document).ready(function() {
 	"use strict";
 
 	function luciTooltip() {
-	    const clickableTooltips = document.querySelectorAll('.luci-tooltip'),
-	            tooltipVisibleClass = 'luci-tooltip--visible';
+			const clickableTooltips = document.querySelectorAll('.luci-tooltip'),
+							tooltipVisibleClass = 'luci-tooltip--visible';
 
-	    function toggleTooltipVisibility(tooltip) {
-	        if (tooltip.classList.contains(tooltipVisibleClass)) {
-	            tooltip.classList.remove(tooltipVisibleClass);
-	        } else {
-	            tooltip.classList.add(tooltipVisibleClass);
-	        }
-	    }
+			function toggleTooltipVisibility(tooltip) {
+					if (tooltip.classList.contains(tooltipVisibleClass)) {
+							tooltip.classList.remove(tooltipVisibleClass);
+					} else {
+							tooltip.classList.add(tooltipVisibleClass);
+					}
+			}
 
-	    function handleClickableTooltipClick() {
-	        toggleTooltipVisibility(this);
-	    }
+			function handleClickableTooltipClick() {
+					toggleTooltipVisibility(this);
+			}
 
-	    clickableTooltips.forEach(function(t){
-	        t.addEventListener('click', handleClickableTooltipClick);
-	    });
+			clickableTooltips.forEach(function(t){
+					t.addEventListener('click', handleClickableTooltipClick);
+			});
 	}
-	
+
 	document.addEventListener('DOMContentLoaded', function() {
-	    luciTooltip();
+			luciTooltip();
 	});
 });
