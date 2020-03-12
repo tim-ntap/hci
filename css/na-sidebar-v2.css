@@ -1,7 +1,3 @@
-body {
-  font-family:Roboto, sans-serif;
-}
-
 h2[id].n-property-bar__property-name {
   padding: 0px;
   margin-top: 0px;
@@ -18,7 +14,7 @@ ul#mysidebar {
     border-radius:0px;
     background: inherit;
     padding-top: 0px;
-    box-shadow: 2px 0px 1px rgba(0,0,0,.08)
+    box-shadow: 2px 0px 0px rgba(0,0,0,.08)
 }
 
 .nav, .nav ul, .nav li {
@@ -45,7 +41,6 @@ ul#mysidebar {
 }
 
 .nav a {
-    color: #444; /* Black */
     display: block;
     outline: none;
     /*-webkit-border-radius: 4px;
@@ -62,10 +57,16 @@ ul#mysidebar {
 
 
 .nav li > a > span:after {
-    content: '\25be';
+  content: '\276f';
+  transform: rotate(90deg);
+  display: block;
+  color: #444;
 }
 .nav li.active > a > span:after {
-    content: '\25b4';
+  content: '\276f';
+  transform: rotate(270deg);
+  display: block;
+  color: #444;
 }
 
 .nav a:hover, .nav li.active > a {

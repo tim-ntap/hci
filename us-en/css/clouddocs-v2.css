@@ -1,14 +1,14 @@
 
 /* NetApp.com Overrides */
 .n-property-bar__inner-wrap {
-  height: 46px;
+  height: 38px;
 }
 
 .site-header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 500;
+  z-index: 2;
 }
 
 .ie-site-nav {
@@ -22,17 +22,15 @@
 }
 
 .ie-content-pane {
-  padding: 24px;
+  padding: 24px 48px;
   padding-top: 0px;
 }
 
-h1 {
-  font-size: 40px;
-}
-
-h2 {
-  font-size: 32px;
-}
+h1 { font-size: 40px; margin-bottom: 24px; }
+h2 { font-size: 32px; margin-bottom: 16px; }
+h3 { font-size: 24px; margin-bottom: 16px; }
+h4 { font-size: 20px; margin-bottom: 16px; }
+h5 { font-size: 18px; margin-bottom: 16px; }
 
 .sect1 {
   padding-bottom: 1.25em;
@@ -42,10 +40,36 @@ h2 {
   border-top:2px solid #efefed
 }
 
-.sect1>h1, .sect1>h2 {
-    margin-top: .5em;
-    margin-bottom: .5em;
+.sect1>h1, .sect1>h2, .sect1>h3, .sect1>h4 {
+  margin-bottom: .5em;
+  font-weight: 500;
 }
+
+.sect1>h1, .sect1>h2 { margin-top: .5em; }
+.sect1>h3, .sect1>h4 { margin-top: 0px; }
+
+ul, ol {
+    margin-left: 1.5em;
+}
+
+.ulist, .olist {
+  margin-bottom: 24px;
+}
+
+dl dd {
+  margin-left: 1.125em;
+}
+
+dl dt {
+    margin-bottom: .3125em;
+    font-weight: bold;
+}
+
+#toctitle {
+  color: inherit;
+}
+
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:20px;}
 
 /* Temp Override netapp.css behavior */
 li.n-footer__language svg {
@@ -80,9 +104,10 @@ time+span {
 
 /* i18n */
 #ie-i18n {
+  display: none;
   position: relative;
   border: 1px solid #dbdbdb;
-  border-radius: 3px;
+  border-radius: 6px;
   pointer-events: all;
   cursor: pointer;
   margin-top: 13px;
@@ -182,7 +207,7 @@ time+span {
 }
 
 .n-language-selector-menu__title {
-  font-family: 'Gotham SSm A','Gotham SSm B',Helvetica,Arial,sans-serif;
+  font-family: inherit;
   font-weight: 500;
   font-style: normal;
   color: #454545;
@@ -190,7 +215,7 @@ time+span {
 }
 
 .n-language-selector-menu .n-menu__header-text {
-  font-family: 'Gotham Narrow SSm A','Gotham Narrow SSm B',Helvetica,Arial,sans-serif;
+  font-family: inherit;
   font-weight: 700;
   font-style: normal;
   color: #454545;
@@ -202,6 +227,10 @@ time+span {
 
 /* Misc */
 @media (min-width: 48em) {
+  .ie-content-pane {
+    width: calc(100% - 310px);
+  }
+
   .n-property-bar__property-mark--has-property-name{
     padding-top: 6px;
   }
@@ -269,7 +298,7 @@ time+span {
 }
 
 /* Mobile (Default) Design */
-.tableblock th, .tableblock p, .tableblock ul {
+.tableblock th, .tableblock p, .tableblock ul, .tableblock ol {
   font-size: 8px;
 }
 
@@ -294,22 +323,21 @@ time+span {
   /* Wrap word regardless of space */
   overflow-wrap: break-word;
   word-wrap: break-word;
-  width: calc(100% - 310px);
 }
 
 #n-main-content {
-  margin-top: 121px;
+  margin-top: 70px;
   min-height: 86vh;
 }
 
-#downlevel-header {
-  color: blue;
-  font-weight: bold;
-  padding-left: 10px;
+.previous-version {
+  background-color: #FFE1A1;
+  padding: 15px;
+  margin: 10px 0px;
 }
 
-.downlevel :after {
-  display: none !important;
+.previous-version-highlight {
+  font-weight: bold;
 }
 
 /* Mobile landscape */
@@ -327,13 +355,25 @@ time+span {
     width: auto;
   }
 
-  .tableblock th, .tableblock p, .tableblock ul {
+  .tableblock th, .tableblock p, .tableblock ul, .tableblock ol {
     font-size: inherit;
   }
 }
 
 /* media queries */
 @media screen and (min-width: 768px) {
+  #ie-i18n {
+    display: block;
+  }
+
+  .site-header {
+    z-index: 500;
+  }
+
+  .n-property-bar__inner-wrap {
+    height: 46px;
+  }
+
   .ie-content-pane {
     width: calc(100% - 310px);
     margin-left: 310px;
@@ -355,16 +395,24 @@ time+span {
     vertical-align: top;
   }
 
+  #n-main-content {
+    margin-top: 121px;
+  }
+
   .image img {
     width: auto;
   }
 
-  .tableblock th, .tableblock p, .tableblock ul {
+  .tableblock th, .tableblock p, .tableblock ul, .tableblock ol {
     font-size: inherit;
   }
 }
 
 @media screen and (min-width: 1024px) {
+  .n-property-bar__inner-wrap {
+    height: 46px;
+  }
+
   .ie-content-pane {
     width: calc(100% - 535px);
     margin-top: 70px;
@@ -386,11 +434,15 @@ time+span {
     vertical-align: top;
   }
 
+  #n-main-content {
+    margin-top: 121px;
+  }
+
   .image img {
     width: auto;
   }
 
-  .tableblock th, .tableblock p, .tableblock ul {
+  .tableblock th, .tableblock p, .tableblock ul, .tableblock ol {
     font-size: inherit;
   }
 }
@@ -406,4 +458,21 @@ time+span {
 
 h1.n-doc__component-detail-heading {
   margin-bottom: .1em;
+}
+
+.n-pdf-button {
+  border: #e3e3e3; 
+  align-items: center; 
+  border: 1px solid transparent; 
+  display: inline-flex; 
+  border-top: 1px solid #e3e3e3 !important; 
+  border-bottom: 1px solid #e3e3e3 !important; 
+  font-size: .875rem;
+  padding-left: .75em; 
+  padding-right: .75em; 
+  height: 2.25em; 
+  line-height: 1.5;
+  color: #454545; 
+  font-weight: bolder; 
+  width: 265px;
 }
