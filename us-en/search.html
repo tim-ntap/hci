@@ -59,6 +59,8 @@
   <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css'>
 
   
+  <link rel='stylesheet' href='/hci/us-en/css/na-feature.css' type='text/css'>
+  
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -75,7 +77,10 @@
 
 <script src='/hci/us-en/js/na-utility.js'></script>
   <script src='/hci/us-en/js/clouddocs.js'></script>
-  <script src='/hci/us-en/js/s_code_impl.js'></script>
+  
+  <script src='/hci/us-en/js/s_code_impl-v2.js'></script>
+  
+
   <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/hci/us-en/js/toc.js'></script>
@@ -820,8 +825,53 @@
   <!-- Sidebar Column -->
   
   <div class="col-md-3" >
-    
       
+
+
+
+<div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    &vellip; Download PDF
+    <span>
+      <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+    </span>
+  </a>
+</div>
+<ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;">
+  
+    
+
+    <div class="n-pdf-section">
+      <span class="n-pdf-section-title">
+        Site 
+      </span>
+    </div>
+    <li>
+      <a target="_blank" href="/hci/us-en/pdfs/fullsite-sidebar/NetApp_HCI_Cloud_Services_and_Solutions.pdf" >
+        <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+        NetApp HCI Cloud Services and Solutions
+      </a>
+    </li>
+   
+  
+  
+
+  
+
+  
+
+
+</ul>
+
+<script>
+  $("#toggleContainerPdf li.active").parents('li').toggle('display');
+  $("#toggleContainerPdf li.active").parents('span.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+  });
+</script>
+
+
 
 <ul id="mysidebar" class="nav">
   
@@ -860,13 +910,20 @@
 
 <p class="page-details">
 
-<time datetime="2020-03-27 21:16:14 +0000">03/27/2020</time>
-
+<time datetime="2020-04-21 21:57:48 +0000">04/21/2020</time>
 
 
 <span>Contributors
   
 </span>
+
+
+  <span>
+    <a target="_blank" href="/hci/us-en/pdfs/pages//search.pdf" role="button">
+      <img src="/hci/us-en/images/pdf.png" width="20" height="20"/> Download PDF of this topic
+    </a>
+  </span>
+
 
 </p>
 

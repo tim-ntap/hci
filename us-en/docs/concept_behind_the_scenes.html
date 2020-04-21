@@ -57,6 +57,8 @@
   <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css'>
 
   
+  <link rel='stylesheet' href='/hci/us-en/css/na-feature.css' type='text/css'>
+  
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -77,7 +79,10 @@
 
 <script src='/hci/us-en/js/na-utility.js'></script>
   <script src='/hci/us-en/js/clouddocs.js'></script>
-  <script src='/hci/us-en/js/s_code_impl.js'></script>
+  
+  <script src='/hci/us-en/js/s_code_impl-v2.js'></script>
+  
+
   <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src='/hci/us-en/js/toc.js'></script>
@@ -832,8 +837,224 @@
   <!-- Sidebar Column -->
   
   <div class="col-md-3" >
-    
       
+
+
+
+<div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    &vellip; Download PDF
+    <span>
+      <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+    </span>
+  </a>
+</div>
+<ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;">
+  
+    
+
+    <div class="n-pdf-section">
+      <span class="n-pdf-section-title">
+        Site 
+      </span>
+    </div>
+    <li>
+      <a target="_blank" href="/hci/us-en/pdfs/fullsite-docs_sidebar/NetApp_HCI_Cloud_Services_and_Solutions.pdf" >
+        <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+        NetApp HCI Cloud Services and Solutions
+      </a>
+    </li>
+   
+  
+  
+
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Concepts.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Concepts
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+    <div class="n-pdf-section">
+      <span class="n-pdf-section-title">
+        This topic
+      </span>
+    </div>
+
+    <li class="active">
+      <a target="_blank" href="/hci/us-en/pdfs/pages/docs/concept_behind_the_scenes.pdf" >
+        <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+        What happens when you enable NetApp Kubernetes Service?
+      </a>
+    </li>
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Prerequisites_for_cloud_services_on_NetApp_HCI.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Prerequisites for cloud services on NetApp HCI
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Enable_cloud_services_on_NetApp_HCI.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Enable cloud services on NetApp HCI
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Enable_Kubernetes_clusters_on_NetApp_HCI.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Enable Kubernetes clusters on NetApp HCI
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Manage_data_in_Cloud_Volumes_with_NetApp_Fabric_Orchestrator.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Manage data in Cloud Volumes with NetApp Fabric Orchestrator
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+
+</ul>
+
+<script>
+  $("#toggleContainerPdf li.active").parents('li').toggle('display');
+  $("#toggleContainerPdf li.active").parents('span.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+  });
+</script>
+
+
 
 <ul id="mysidebar" class="nav">
   
@@ -1031,7 +1252,6 @@
 <time datetime="2019-12-04 22:41:40 +0000">12/04/2019</time>
 
 
-
 <span>Contributors
   
   <a target="_blank" href="https://github.com/amgrissino">
@@ -1043,6 +1263,14 @@
   </a>
   
 </span>
+
+
+  <span>
+    <a target="_blank" href="/hci/us-en/pdfs/pages/docs/concept_behind_the_scenes.pdf" role="button">
+      <img src="/hci/us-en/images/pdf.png" width="20" height="20"/> Download PDF of this topic
+    </a>
+  </span>
+
 
 </p>
 
