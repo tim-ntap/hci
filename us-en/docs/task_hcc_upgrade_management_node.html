@@ -1,0 +1,2425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head class="at-element-marker">
+  <title>Upgrade a management node</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Upgrade a management node" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/hci/us-en/docs/task_hcc_upgrade_management_node.html" />
+	<meta property="og:description" content="As part of a NetApp HCI or SolidFire storage system upgrade, you upgrade the management node." />
+  <meta property="og:image" content="https://docs.netapp.com/hci/us-en/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/>
+  
+  <meta name="description" content="As part of a NetApp HCI or SolidFire storage system upgrade, you upgrade the management node.">
+  <meta name="keywords" content=" netapp, hci, on premise, cluster, management node, mNode, upgrade, version 10, 11.0, 11.1, 11.3, 11.5, 11.7">
+  
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/hci/us-en/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed -->
+  
+
+  <!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Controls AsciiDoctor Admonition Blocks -->
+  <link rel="stylesheet" type="text/css" href="/hci/us-en/css/font-awesome.min.css">
+
+  <!-- Controls the shadow effect for search dropdown menu -->
+  <link rel="stylesheet" href="/hci/us-en/css/boxshadowproperties.css">
+
+  <!-- NetApp CSS controls the technical content -->
+  <link rel='stylesheet' href='/hci/us-en/css/netapp.css' type='text/css'>
+
+  <!-- WWW CSS Content -->
+  <link rel="stylesheet" href="https://www.netapp.com/us/static/css/luci-dotcom.min.css?v10007269030243">
+  <link rel="stylesheet" href="https://www.netapp.com/us/static/css/netapp-dotcom.css?v10007269030243">
+  <link href="https://www.netapp.com/us/static/css/netapp-library-critical.min.css?v10007269030243" media="all" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.netapp.com/us/static/css/netapp-library-non-critical.min.css?v10007269030243" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://www.netapp.com/us/static/css/netapp-library-global-header-footer.min.css">
+
+  <!-- NetApp IE Customizations -->
+  <link rel="stylesheet" href='/hci/us-en/css/na-utility.css' type='text/css'>
+  <link rel="stylesheet" href='/hci/us-en/css/na-sidebar.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/clouddocs.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/na-pagenav.css' type='text/css'>
+
+  
+  <link rel='stylesheet' href='/hci/us-en/css/na-feature.css' type='text/css'>
+  
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+  <!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script>
+  
+    <script src='/hci/us-en/js/na-search.js'></script>
+  
+
+  
+  <script src='/hci/us-en/js/na-pagenav.js'></script>
+  
+
+  <link rel='stylesheet' href='/hci/us-en/css/prism.css' type='text/css'>
+  <link rel='stylesheet' href='/hci/us-en/css/prism-netapp.css' type='text/css'>
+
+
+<script src='/hci/us-en/js/na-utility.js'></script>
+  <script src='/hci/us-en/js/clouddocs.js'></script>
+  
+  <script src='/hci/us-en/js/s_code_impl-v2.js'></script>
+  
+
+  <script src='/hci/us-en/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/hci/us-en/js/toc.js'></script>
+  <script src='/hci/us-en/js/customscripts.js'></script>
+
+  <script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+
+  <!-- Controls the i18n Browser Redirection -->
+  <script>
+    var siteLocales = [];
+    
+      siteLocales.push("us-en");
+    
+
+    standardizeUrl(siteLocales, "clouddocs.netapp.com", "https://docs.netapp.com");
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81697994-3"></script>
+  <script>
+  if (document.location.hostname === "docs.netapp.com") {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-81697994-3');
+  }
+  </script>
+</head>
+
+
+  <body class role="document">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Community</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Customer Stories</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/us/contact-us/index.aspx" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/hci/us-en/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/hci/us-en/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+      <div class="n-property-navigation-bar n-property-navigation-bar--embedded">
+        <nav class="n-property-navigation-bar__nav">
+          <div class="n-container">
+            <ul class="n-property-navigation-bar__nav-list">
+              <li class="n-property-navigation-bar__nav-list-item">
+                <a href="#" class="n-property-navigation-bar__nav-link" data-ntap-target="products-and-solutions" data-ntap-toggle="menu">
+                  <span class="n-property-navigation-bar__nav-link-text">Products and Solutions</span>
+                  <svg class="n-icon-chevron-down n-property-navigation-bar__menu-indicator" aria-labelledby="title">
+                    <title>chevron-down</title>
+                    <use xlink:href="/hci/us-en/common/svg/sprite.svg#chevron-down"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="n-property-navigation-bar__nav-list-item">
+                <a href="#" class="n-property-navigation-bar__nav-link" data-ntap-target="support-and-training" data-ntap-toggle="menu">
+                  <span class="n-property-navigation-bar__nav-link-text">Support and Training</span>
+                  <svg class="n-icon-chevron-down n-property-navigation-bar__menu-indicator" aria-labelledby="title">
+                    <title>chevron-down</title>
+                    <use xlink:href="/hci/us-en/common/svg/sprite.svg#chevron-down"></use>
+                  </svg>
+                </a>
+              </li>
+              <li class="n-property-navigation-bar__nav-list-item">
+                <a href="https://cloud.netapp.com/home" target="_blank" class="n-property-navigation-bar__nav-link">
+                <span class="n-property-navigation-bar__nav-link-text">Cloud Central</span>
+                </a>
+              </li>
+              <!--
+                <li class="n-property-navigation-bar__nav-list-item" data-ntap-ui="more-menu">
+                    <a href="#" class="n-property-navigation-bar__nav-link" data-ntap-target="more-menu">
+                    <span class="n-property-navigation-bar__nav-link-text">More</span>
+                    <svg class="n-icon-chevron-down n-property-navigation-bar__menu-indicator" aria-labelledby="title">
+                        <title>chevron-down</title>
+                        <use xlink:href="/common/svg/sprite.svg#chevron-down"></use>
+                    </svg>
+                    </a>
+                </li>
+                -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- start copy from prototype here -->
+    <div class="n-property-navigation-bar__menus n-property-navigation-bar__menus--desktop-experience">
+      <div class="n-menu n-menu--mega" data-ntap-target="products-and-solutions" data-ntap-layout="4">
+        <div class="n-container">
+          <div class="n-menu--mega__default-content-container">
+            <section class="n-menu--mega__default-content">
+              <p class="n-menu--mega__default-content__intro-heading">Suggested for you</p>
+              <p class="n-menu--mega__default-content__heading"><span>RIGHT-SIZE YOUR STORAGE WITH A QUICK, 3-MINUTE ASSESSMENT.</span></p>
+              <p>Get data management recommendations that reflect your unique business needs.</p>
+              <a href="https://explore.netapp.com" target="_blank" class="luci-button luci-link--cta" title="TRY NOW">
+                <span class="luci-link__text"> TRY NOW </span>
+                <svg class="luci-icon luci-link__icon luci-link__icon--right" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <a href="https://explore.netapp.com" target="_blank"><img class="n-menu--mega__default-content__image" src="https://www.netapp.com/us/media/DXD363-McKinseyTool-Promos-465X294.png" alt="Try our 3-minute assessment"></a>
+            </section>
+          </div>
+          <canvas class="aim-awareness-container" style="display:inline-block;pointer-events:none;position:absolute;z-index:9999;"></canvas>
+          <ul class="n-menu--mega__sub-navigation">
+            <!-- Cloud services -->
+            <li class="n-menu--mega__sub-navigation__primary-nav">
+              <a class="n-menu--mega__sub-navigation__primary-nav__link" href="#" title="">
+                Cloud services
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/cloud-services/why-netapp-for-cloud-services.aspx">Why NetApp for Cloud Services</a></li>
+                    <li><a href="https://www.netapp.com/us/products/cloud-services/use-cases-for-netapp-cloud-services.aspx">Discover What You Can Do with NetApp Cloud Services</a></li>
+                    <li><a href="https://www.netapp.com/us/products/cloud-services/netapp-cloud-services-tour.aspx">Cloud Services Tour</a></li>
+                  </ul>
+                </section>
+                <section class="n-menu--mega__content n-menu--mega__content--col-2">
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li><a href="https://cloud.netapp.com/azure-netapp-files" target="_blank">Azure NetApp Files</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-volumes-service-for-aws" target="_blank">Cloud Volumes Service for AWS</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-volumes-service-for-gcp" target="_blank">Cloud Volumes Service for Google Cloud</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-volumes-service-for-on-premises" target="_blank">Cloud Volumes Service for On-Premises</a></li>
+                    <li><a href="https://cloud.netapp.com/ontap-cloud" target="_blank">Cloud Volumes ONTAP</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-manager" target="_blank">Cloud Manager</a></li>
+                    <li><a href="https://cloud.netapp.com/kubernetes-service" target="_blank">NetApp Kubernetes Service</a></li>
+                    <li><a href="https://cloud.netapp.com/fabric-orchestrator" target="_blank">Fabric Orchestrator</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-insights" target="_blank">Cloud Insights</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-sync-service" target="_blank">Cloud Sync</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-tiering" target="_blank">Cloud Tiering</a></li>
+                    <li><a href="https://cloud.netapp.com/saas-backup" target="_blank">SaaS Backup</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-backup-service" target="_blank">Cloud Backup Service</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-compliance" target="_blank">Cloud Compliance</a></li>
+                  </ul>
+                </section>
+                <section class="n-menu--mega__content n-menu--mega__content--col-3">
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h3>Best for</h3>
+                    </li>
+                    <li><a href="https://cloud.netapp.com/data-migration" target="_blank">Data Migration</a></li>
+                    <li><a href="https://cloud.netapp.com/data-protection" target="_blank">Data Protection</a></li>
+                    <li><a href="https://cloud.netapp.com/database" target="_blank">Databases</a></li>
+                    <li><a href="https://cloud.netapp.com/block-storage" target="_blank">Block Storage</a></li>
+                    <li><a href="https://cloud.netapp.com/cloud-native-applications" target="_blank">Cloud Native Applications</a></li>
+                    <li><a href="https://cloud.netapp.com/file-services" target="_blank">File Services</a></li>
+                    <li><a href="https://cloud.netapp.com/hpc-analytics" target="_blank">High Performance Computing and Analytics</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Hybrid Cloud Infrastructure -->
+            <li class="n-menu--mega__sub-navigation__primary-nav">
+              <a class="n-menu--mega__sub-navigation__primary-nav__link" href="#" title="">
+                Hybrid Cloud Infrastructure
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h3>I need to</h3>
+                    </li>
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/it-automation/index.aspx">Simplify and Automate Virtualized Workloads</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/it-automation/google-clouds-anthos.aspx">Google Cloud's Anthos&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/it-automation/redhat.aspx">Red Hat Private Cloud&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/it-automation/openstack-private-cloud.aspx">OpenStack Private Cloud&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/it-automation/vmware-private-cloud.aspx">VMware Private Cloud&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/it-automation/desktop-virtualization.aspx">End User Computing (VDI)&nbsp;›</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/build-cloud-infrastructure/index.aspx">Build Service Provider Infrastructure</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/build-cloud-infrastructure/infrastructure-as-a-service.aspx">IaaS Solutions&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/build-cloud-infrastructure/platform-as-a-service.aspx">PaaS Solutions&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/build-cloud-infrastructure/software-as-a-service.aspx">SaaS Solutions&nbsp;› </a></li>
+                  </ul>
+                </section>
+                <section class="n-menu--mega__content n-menu--mega__content--col-2">
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/devops/index.aspx">Accelerate Your DevOps Journey</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/devops/software-development-life-cycle.aspx">Software Development Lifecycle (SDLC)&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/devops/code-and-artifact-repository.aspx">Code and Artifact Repository&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/devops/continuous-integration-and-continuous-delivery.aspx">Continuous Integration/Continuous Delivery (CI/CD)&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/devops/configuration-management.aspx">Configuration and Resource Management&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/it-automation/containers.aspx">Containers&nbsp;›</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/unstructured-data/index.aspx">Optimize Unstructured Data</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/unstructured-data/rich-media.aspx">Rich Content Management&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/unstructured-data/distributed-content.aspx">Distributed Content Management&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/unstructured-data/internet-of-things.aspx">IoT&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/unstructured-data/video-surveillance.aspx">Video Surveillance&nbsp;›</a></li>
+                  </ul>
+                </section>
+                <section class="n-menu--mega__content n-menu--mega__content--col-3">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/private-cloud/index.aspx">NetApp Private Cloud Overview</a></li>
+                    <li><a href="https://www.netapp.com/us/hybrid-cloud-infrastructure.aspx">Why NetApp for Hybrid Multicloud</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/converged-systems/hyper-converged-infrastructure.aspx">NetApp HCI</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/object-storage-grid-sds.aspx">StorageGRID Object Storage</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Flash storage -->
+            <li class="n-menu--mega__sub-navigation__primary-nav">
+              <a class="n-menu--mega__sub-navigation__primary-nav__link" href="#" title="">
+                Flash storage
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h3>I need to</h3>
+                    </li>
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/applications/index.aspx">Accelerate Workloads and Analytics</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/applications/sap/index.aspx">SAP Solutions&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/applications/oracle-database.aspx">Oracle Database Solutions&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/applications/big-data-analytics/index.aspx">Analytics: Splunk, Hadoop, NoSQL&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/applications/ai-deep-learning.aspx">AI and Deep Learning&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/applications/engineering/index.aspx">Engineering and Design Applications&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/applications/microsoft/index.aspx">MS Apps Solutions&nbsp;›</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/data-center-efficiency/index.aspx">Gain Data Center Efficiencies</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/data-center-efficiency/data-center-consolidation.aspx">Data Center Consolidation&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/data-center-efficiency/virtual-server-infrastructure.aspx">Virtual Server Infrastructure&nbsp;›</a></li>
+                  </ul>
+                </section>
+                <section class="n-menu--mega__content n-menu--mega__content--col-2">
+                  <ul class="n-menu--mega__content--usecase-list">
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/solutions/data-protection/index.aspx">Protect and Secure Data</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/data-protection/backup-recovery.aspx">Backup and Recovery&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/data-protection/disaster-recovery.aspx">Business Continuity/Disaster Recovery&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/a-z/storage-security/index.aspx">Data Security&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/a-z/storage-security/security-privacy.aspx">Data Privacy&nbsp;›</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/data-protection/data-compliance.aspx">Data Compliance&nbsp;›</a></li>
+                  </ul>
+                </section>
+                <section class="n-menu--mega__content n-menu--mega__content--col-3">
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/products/storage-systems/all-flash-array/index.aspx">All-Flash Arrays</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/all-flash-array/aff-a-series.aspx">AFF A-Series</a></li>
+                    <li><a href="https://www.netapp.com/us/products/entry-level-aff.aspx">AFF C190</a></li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/all-flash-array/nvme.aspx">NVMe Storage</a></li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/all-flash-array/solidfire-web-scale.aspx">SolidFire</a></li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/all-flash-array/ef-series.aspx">EF-Series</a></li>
+                    <li><a href="https://www.netapp.com/us/products/ontap-ai.aspx">ONTAP AI</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h4><a href="https://www.netapp.com/us/products/storage-systems/hybrid-flash-array/index.aspx">Hybrid Arrays</a></h4>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/hybrid-flash-array/fas.aspx">FAS</a></li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/hybrid-flash-array/index.aspx">E-Series</a></li>
+                    <li><a href="https://www.netapp.com/us/products/converged-systems/flexpod-converged-infrastructure.aspx">FlexPod</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- NetApp Keystone -->
+            <li>
+              <a href="#" title="">
+                NetApp Keystone
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/solutions/keystone/index.aspx">A New Consumption Model</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/keystone/ownership-experience.aspx">A Better Ownership Experience</a></li>
+                    <li><a href="https://www.netapp.com/us/solutions/keystone/cloud-consumption.aspx">Keystone Cloud Consumption Services</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Data storage systems -->
+            <li>
+              <a href="#" title="">
+                Data storage systems
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/index.aspx">Why Data Storage Systems</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/storage-area-network.aspx">SAN</a></li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/virtualization-flexarray.aspx">FlexArray Storage Virtualization</a></li>
+                    <li><a href="https://www.netapp.com/us/products/storage-systems/disk-shelves-and-storage-media/index.aspx">Disk Shelves and Storage Media</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Data infrastructure management -->
+            <li>
+              <a href="#" title="">
+                Data infrastructure management
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/data-infrastructure-management/index.aspx">Why Data Infrastructure Management</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/data-infrastructure-management/oncommand-insight.aspx">OnCommand Insight</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-infrastructure-management/workflow-automation.aspx">OnCommand Workflow Automation</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-infrastructure-management/cloud-manager.aspx">NetApp Cloud Manager</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-infrastructure-management/virtual-infrastructure.aspx">Virtual Infrastructure Management</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-infrastructure-management/active-iq.aspx">Active IQ Predictive Analytics and Support</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Data storage software -->
+            <li>
+              <a href="#" title="">
+                Data storage software
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/index.aspx">Why Data Storage Software</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/ontap.aspx">ONTAP Data Management Software</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/element-os.aspx">Element Software</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/santricity-os.aspx">SANtricity Software</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/ontap-select-sds.aspx">ONTAP Select</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/object-storage-grid-sds.aspx">StorageGRID Software</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-management-software/max-data.aspx">MAX Data Software</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Data protection and security -->
+            <li>
+              <a href="#" title="">
+                DATA PROTECTION AND SECURITY
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--overview">
+                    <li>
+                      <h3>Overview</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/backup-recovery/index.aspx">Why Backup and Recovery</a></li>
+                  </ul>
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Products</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/products/backup-recovery/data-availability-services.aspx">Data Availability Services</a></li>
+                    <li><a href="https://www.netapp.com/us/products/backup-recovery/snapcenter-backup-management.aspx">SnapCenter Backup Management</a></li>
+                    <li><a href="https://www.netapp.com/us/products/backup-recovery/snapmirror-data-replication.aspx">SnapMirror Data Replication</a></li>
+                    <li><a href="https://www.netapp.com/us/products/backup-recovery/snaplock-compliance.aspx">SnapLock Data Compliance</a></li>
+                    <li><a href="https://www.netapp.com/us/products/data-security/index.aspx">ONTAP Data Security</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+            <!-- Professional services -->
+            <li>
+              <a href="#" title="">
+                Professional services
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+              <div class="n-menu--mega__content-container">
+                <section class="n-menu--mega__content n-menu--mega__content--col-1">
+                  <ul class="n-menu--mega__content--product-list">
+                    <li>
+                      <h3>Services</h3>
+                    </li>
+                    <li><a href="https://www.netapp.com/us/services/index.aspx">NetApp Services</a></li>
+                    <li><a href="https://www.netapp.com/us/services/index.aspx#business-consulting">Consulting</a></li>
+                    <li><a href="https://www.netapp.com/us/services/index.aspx#business-consulting">Professional Services</a></li>
+                    <li><a href="https://www.netapp.com/us/services/index.aspx#operational-support">Operational Support</a></li>
+                  </ul>
+                </section>
+              </div>
+            </li>
+          </ul>
+          <ul class="n-menu--mega__footer-nav">
+            <li><a href="https://www.netapp.com/us/try-and-buy/test-drive/index.aspx">Test Drive
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+             </a></li>
+           <li>
+              <a href="https://www.netapp.com/us/info/index.aspx" title="">
+                Knowledge Center
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.netapp.com/us/products/a-z/index.aspx" title="">
+                All products A-Z
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 13 9">
+                  <polygon points="0,3.8 10.2,3.8 7.6,1.1 8.7,0 13,4.5 8.7,9 7.6,7.9 10.2,5.2 0,5.2"></polygon>
+                </svg>
+              </a>
+            </li>
+
+
+          </ul>
+          <div class="n-menu--mega__footer-nav__corrective-padding"></div>
+        </div>
+      </div>
+      <div class="n-menu n-menu--mega" data-ntap-target="support-and-training" data-ntap-layout="4">
+        <div class="n-container">
+          <!-- Support and training -->
+          <div class="n-menu--mega__support-and-training">
+            <div class="n-menu--mega__support-and-training__fake-button">Support and training</div>
+            <section class="n-menu--mega__support-and-training__col-container">
+              <ul class="n-menu--mega__support-and-training__col-1">
+                <li><a href="https://mysupport.netapp.com/">Support</a></li>
+                <li><a href="https://www.netapp.com/us/services-support/university/index.aspx">Training</a></li>
+                <li><a href="https://www.netapp.com/us/try-and-buy/test-drive/index.aspx">Test Drive</a></li>
+                <li><a href="https://www.netapp.com/us/documentation/index.aspx">Product Documentation</a></li>
+                <li><a href="https://mysupport.netapp.com/documentation/productsatoz/index.html">Install and Configure</a></li>
+                <li><a href="https://mysupport.netapp.com/GPS/index.html">Troubleshoot</a></li>
+                <li><a href="https://partner-connect.netapp.com/us/partner-directory">Find a Partner</a></li>
+              </ul>
+            </section>
+            <section class="n-menu--mega__support-and-training__col-container">
+              <ul class="n-menu--mega__support-and-training__col-2">
+                <li>
+                  <h3>REQUIRES NETAPP LOGIN</h3>
+                </li>
+                <li><a href="https://mysupport.netapp.com/NOW/cgi-bin/software/">Download Software</a></li>
+                <li><a href="https://mysupport.netapp.com/eservice/registerSNoAction.do?moduleName=RegisterMyProduct">Register a Product</a></li>
+                <li><a href="https://mysupport.netapp.com/apbu/3pr/frulkup?moduleName=3pr">View Contracts and Warranties</a></li>
+                <li><a href="https://mysupport.netapp.com/cssportal/faces/oracle/webcenter/portalapp/pages/css/casesparts/ViewCasesLanding.jspx">Check Case Status</a></li>
+              </ul>
+              <div class="n-menu--mega__signup-container">Not registered? <a href="https://mysupport.netapp.com/eservice/public/now.do">Sign up</a></div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end copy from prototype here -->
+  </div>
+  <script>
+    $(function(){
+        var currentLocalization = $('html').attr('lang');
+
+        var localizationsDictionary = {
+            "en-CA" : "https://www.netapp.com/search/index.aspx?for_cr=canada&",
+            "en-IN" : "https://www.netapp.com/search/index.aspx?for_cr=india&",
+            "nl-NL" : "https://www.netapp.com/search/index.aspx?for_cr=netherlands&",
+            "ru-RU" : "https://www.netapp.com/search/index.aspx?for_cr=russia&",
+            "sv-SE" : "https://www.netapp.com/search/index.aspx?for_cr=sweden&",
+            "it-IT" : "https://www.netapp.com/search/index.aspx?for_cr=italy&",
+            "he-IL" : "https://www.netapp.com/search/index.aspx?for_cr=israel&",
+            "ko-KR" : "https://www.netapp.com/search/index.aspx?for_cr=korea&",
+            "zh-TW" : "https://www.netapp.com/search/index.aspx?for_cr=taiwan&",
+            "en-GB" : "https://www.netapp.com/search/index.aspx?for_cr=unitedkingdom&",
+            "en-SG" : "https://www.netapp.com/search/index.aspx?for_cr=asean&",
+            "en-AU" : "https://www.netapp.com/search/index.aspx?for_cr=australia&",
+            "pt-BR" : "https://www.netapp.com/search/index.aspx?for_cr=brasil&",
+            "de-CH" : "https://www.netapp.com/search/index.aspx?for_cr=switzerland&",
+            "es-MX" : "https://www.netapp.com/search/index.aspx?for_cr=mexico&"
+        };
+
+        if($('html').hasClass('ntap-whitelisted') && localizationsDictionary.hasOwnProperty(currentLocalization)) {
+            $('.n-property-bar__property-link').attr('href', '/');
+        }
+    });
+  </script>
+  <!-- End property bar -->
+</header>
+
+        <div class="ie-utility">
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector -->
+    <div id="ie-i18n" class="n-property-bar__lang-selector">
+      <div id="ie-i18n-menu">
+      <span class="ie-i18n-lang">English</span>
+        <button class="ie-i18n-icon-container" type="button">
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none; right: auto;">
+        <div class="n-language-selector-menu">
+          <div class="n-language-selector-menu__header">
+            <span class="n-language-selector-menu__title">Select Your Language</span>
+          </div>
+          <ul class="n-menu__list">
+            <li class="n-menu__list-column">
+              <ul class="n-menu__list">
+                
+                
+                
+                <li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="/hci/us-en/" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+              </ul>
+            </li>
+          </ul>
+          <div class="menu__footer">
+            <p>Current Language: English
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+
+    
+    <div id="search-demo-container" class="searchbox n-property-bar__search">
+      <div id="react-search"></div>
+      <button class="n-property-bar__search-toggle-button" type="button">
+        <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+          <title>search</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#search"></use>
+        </svg>
+      </button>
+    </div>
+    
+  </div>
+
+  <div class="n-breadcrumb">
+    <ul class="n-breadcrumb__list">
+      <li class="n-breadcrumb__list-item">
+        <a href="https://www.netapp.com">Home</a>
+      </li>
+      <li class="n-breadcrumb__list-item">
+        <a href="https://docs.netapp.com">Documentation</a>
+      </li>
+      
+
+      <li class="n-breadcrumb__list-item">
+        <a href="/hci/us-en/">HCI</a>
+      </li>
+      <li class="n-breadcrumb__list-item">
+        Upgrade a management node
+      </li>
+    </ul>
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" >
+      
+
+
+
+<div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    &vellip; Download PDF
+    <span>
+      <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+    </span>
+  </a>
+</div>
+<ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;">
+  
+    
+
+    <div class="n-pdf-section">
+      <span class="n-pdf-section-title">
+        Site 
+      </span>
+    </div>
+    <li>
+      <a target="_blank" href="/hci/us-en/pdfs/fullsite-docs_sidebar/NetApp_HCI_Documentation.pdf" >
+        <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+        NetApp HCI Documentation
+      </a>
+    </li>
+   
+  
+  
+
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Release_Notes.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Release Notes
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Concepts.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Concepts
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Get_started_with_NetApp_HCI.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Get started with NetApp HCI
+        </a>
+      </li>
+      <span>
+        
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Monitor_your_NetApp_HCI_system.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Monitor your NetApp HCI system
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Upgrade_your_NetApp_HCI_or_SolidFire_system.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Upgrade your NetApp HCI or SolidFire system
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Upgrade_sequences.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Upgrade sequences
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/System_upgrade_procedures.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          System upgrade procedures
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+  
+    <div class="n-pdf-section">
+      <span class="n-pdf-section-title">
+        This topic
+      </span>
+    </div>
+
+    <li class="active">
+      <a target="_blank" href="/hci/us-en/pdfs/pages/docs/task_hcc_upgrade_management_node.pdf" >
+        <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+        Upgrade a management node
+      </a>
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/vSphere_upgrade_sequences_with_vCenter_Plug_in.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          vSphere upgrade sequences with vCenter Plug-in
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
+        <a target="_blank" href="/hci/us-en/pdfs/docs_sidebar/Expand_your_NetApp_HCI_system.pdf" >
+          <img src="/hci/us-en/images/pdf.png" width="20" height="20"/>
+          Expand your NetApp HCI system
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+
+
+</ul>
+
+<script>
+  $("#toggleContainerPdf li.active").parents('li').toggle('display');
+  $("#toggleContainerPdf li.active").parents('span.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+  });
+</script>
+
+
+
+<ul id="mysidebar" class="nav">
+  
+
+  
+    <li><a href="..../../../index.html">NetApp HCI Documentation</a></li>
+  
+
+  
+    <li><a href="index.html">NetApp HCI Configuration and Management</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Release Notes</a>
+      <ul>
+        
+
+  
+    <li><a href="rn_whatsnew.html">What's new in NetApp HCI</a></li>
+  
+
+  
+    <li><a href="rn_relatedrn.html">Additional release information</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Concepts</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_hci_product_overview.html">Product overview</a></li>
+  
+
+  
+    <li><a href="concept_cg_hci_accounts.html">Accounts</a></li>
+  
+
+  
+    <li><a href="concept_hci_dataprotection.html">Data protection</a></li>
+  
+
+  
+    <li><a href="concept_hci_clusters.html">Clusters</a></li>
+  
+
+  
+    <li><a href="concept_hci_nodes.html">Nodes</a></li>
+  
+
+  
+    <li><a href="concept_cg_hci_security.html">Security</a></li>
+  
+
+  
+    <li><a href="concept_hci_performance.html">Performance</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Get started with NetApp HCI</a>
+      <ul>
+        
+
+  
+    <li><a href="task_hci_getstarted.html">NetApp HCI installation and deployment overview</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Monitor your NetApp HCI system</a>
+      <ul>
+        
+
+  
+    <li><a href="task_hcc_dashboard.html">View resources on the HCC Dashboard</a></li>
+  
+
+  
+    <li><a href="task_hcc_nodes.html">View your inventory in the Nodes page</a></li>
+  
+
+  
+    <li><a href="task_hcc_activeiq.html">Monitor performance, capacity, and cluster health with Active IQ</a></li>
+  
+
+  
+    <li><a href="task_hcc_collectlogs.html">Collect NetApp HCI logs</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Upgrade your NetApp HCI or SolidFire system</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_hci_upgrade_overview.html">Upgrades overview</a></li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Upgrade sequences</a>
+      <ul>
+        
+
+  
+    <li><a href="task_hcc_upgrade_all.html">Upgrade your NetApp HCI system for version 1.8</a></li>
+  
+
+  
+    <li><a href="task_sf_upgrade_all.html">Upgrade your NetApp SolidFire all-flash storage system for Element 12.0</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">System upgrade procedures</a>
+      <ul>
+        
+
+  
+    <li><a href="task_hcc_update_management_services.html">Update management services</a></li>
+  
+
+  
+    <li><a href="task_upgrade_element_latest_healthtools.html">Upgrade to the latest HealthTools</a></li>
+  
+
+  
+    <li><a href="task_hcc_upgrade_element_prechecks.html">Run Element storage health checks prior to upgrading storage</a></li>
+  
+
+  
+    <li><a href="task_hcc_upgrade_element_software.html">Upgrade Element software</a></li>
+  
+
+  
+    <li class="active"><a href="task_hcc_upgrade_management_node.html">Upgrade a management node</a></li>
+  
+
+  
+    <li><a href="task_vcp_upgrade_plugin.html">Upgrade the NetApp Element Plug-in for vCenter Server</a></li>
+  
+
+  
+    <li><a href="task_upgrade_compute_prechecks.html">Run compute node health checks prior to upgrading compute firmware</a></li>
+  
+
+  
+    <li><a href="task_hcc_upgrade_compute_node_firmware.html">Update compute node firmware</a></li>
+  
+
+  
+    <li><a href="task_hcc_upgrade_compute_node_drivers.html">Update compute node drivers</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">vSphere upgrade sequences with vCenter Plug-in</a>
+      <ul>
+        
+
+  
+    <li><a href="task_hci_upgrade_all_vsphere.html">Upgrade your vSphere components for a NetApp HCI system with the Element Plug-in for vCenter Server</a></li>
+  
+
+  
+    <li><a href="task_sf_upgrade_all_vsphere.html">Upgrade your vSphere components for a NetApp SolidFire storage system with the Element Plug-in for vCenter Server</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <!-- Check Container -->
+    <li class="subfolders">
+      <a href="#">Expand your NetApp HCI system</a>
+      <ul>
+        
+
+  
+    <li><a href="concept_hcc_expandoverview.html">Expand overview</a></li>
+  
+
+  
+    <li><a href="task_hcc_expand_storage.html">Expand NetApp HCI storage resources</a></li>
+  
+
+  
+    <li><a href="task_hcc_expand_compute.html">Expand NetApp HCI compute resources</a></li>
+  
+
+  
+    <li><a href="task_hcc_expand_compute_and_storage.html">Expand NetApp storage and compute resources</a></li>
+  
+
+  
+    <li><a href="task_hci_removewn.html">Remove Witness Nodes after expanding cluster</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+    <li><a href="reference_notices_hci.html">Legal notices</a></li>
+  
+
+
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container -->
+    <article class="page-content">
+      
+
+
+
+<div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Upgrade a management node</h1>
+</div>
+
+<p class="page-details">
+  
+    
+    <time datetime="2020-05-04 22:27:35 +0000">05/04/2020</time>
+    
+  
+
+<span>Contributors
+  
+  <a target="_blank" href="https://github.com/dbag-personal">
+    <img  class="avatar avatar-small"
+          alt="dbag-personal"
+          width="20" height="20"
+          src="https://avatars0.githubusercontent.com/u/56609800?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+  <a target="_blank" href="https://github.com/amgrissino">
+    <img  class="avatar avatar-small"
+          alt="amgrissino"
+          width="20" height="20"
+          src="https://avatars2.githubusercontent.com/u/36450105?v=4"
+          style="border-radius: 50%;"/>
+  </a>
+  
+</span>
+
+
+  <span>
+    <a target="_blank" href="/hci/us-en/pdfs/pages/docs/task_hcc_upgrade_management_node.pdf" role="button">
+      <img src="/hci/us-en/images/pdf.png" width="20" height="20"/> Download PDF of this topic
+    </a>
+  </span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>You can upgrade your management node to management node version 12.0 from version 11.0 or later.</p>
+</div>
+<div class="paragraph">
+<p>Choose one of the following management node upgrade options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are upgrading from management node 11.3 or later:<br>
+<a href="#upgrade-a-management-node-to-version-12-0-from-11-3-or-later">Upgrade a management node to version 12.0 from 11.3 or later</a></p>
+</li>
+<li>
+<p>If you are upgrading from management node 11.0 or 11.1:<br>
+<a href="#upgrade-a-management-node-to-version-12-0-from-11-1-or-11-0">Upgrade a management node to version 12.0 from 11.1 or 11.0</a></p>
+</li>
+<li>
+<p>If you are upgrading from a management node version 10.x:<br>
+<a href="#migrating-from-management-node-version-10-x-to-11-x">Migrating from management node version 10.x to 11.x</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Choose this option if you have <strong>sequentially</strong> updated (1) your management services version and (2) your Element storage version and you want to <strong>keep</strong> your existing management node:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If you are keeping existing management node:<br>
+<a href="#reconfigure-authentication-using-the-management-node-rest-api">Reconfigure authentication using the management node REST API</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you do not sequentially update your management services followed by Element storage, you cannot reconfigure reauthentication using this procedure. Follow the appropriate upgrade procedure instead.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<div class="title">Before you begin</div>
+<ul>
+<li>
+<p>The vCenter Plug-in 4.4 or later requires a management node 11.3 or later that is created with modular architecture and provides individual services.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upgrade-a-management-node-to-version-12-0-from-11-3-or-later">Upgrade a management node to version 12.0 from 11.3 or later</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can perform an in-place upgrade of the management node from 11.3 or later to version 12.0 without needing to provision a new management node virtual machine. You can use this procedure if you are upgrading from any of the following management node versions: 11.3, 11.5, 11.7, or 11.8.</p>
+</div>
+<div class="ulist">
+<div class="title">Before you begin</div>
+<ul>
+<li>
+<p>The management node you are intending to upgrade is version 11.3 or later and uses IPv4 networking. The management node version 12.0 does not support IPv6.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To check the version of your management node, log in to your management node and view the Element version number in the login banner.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>You have updated your management services bundle to the latest version using Hybrid Cloud Control (HCC). You can access HCC from the following IP: <code><a href="https://&lt;ManagementNodeIP&gt" class="bare">https://&lt;ManagementNodeIP&gt</a>;</code></p>
+</li>
+<li>
+<p>You have configured an additional network adapter (if required) using the instructions for configuring a storage NIC (eth1) in the management node user guide your product.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Persistent volumes might require an additional network adapter if eth0 is not able to be routed to the SVIP. Configure a new network adapter on the iSCSI storage network to allow the configuration of persistent volumes.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Storage nodes are running Element 11.3 or later. Use the latest HealthTools to upgrade Element software.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Log in to the management node virtual machine using SSH or console access.</p>
+</li>
+<li>
+<p>Download the management node ISO for <a href="https://mysupport.netapp.com/products/p/hci.html">NetApp HCI</a> or <a href="https://mysupport.netapp.com/products/p/element_software.html">Element</a> software from the NetApp Support Site to the management node virtual machine.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The name of the ISO is similar to <code>solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso</code>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Check the integrity of the download by running md5sum on the downloaded file and compare the output to what is available on NetApp Support Site for NetApp HCI or Element software, as in the following example:</p>
+<div class="paragraph">
+<p><code>sudo md5sum -b &lt;path to iso&gt;/solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso</code></p>
+</div>
+</li>
+<li>
+<p>Mount the management node ISO image and copy the contents to the file system using the following commands:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo mkdir -p /upgrade</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo mount &lt;solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso&gt; /mnt</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo cp -r /mnt/* /upgrade</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Change to the home directory, and unmount the ISO file from <code>/mnt</code>:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo umount /mnt</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Delete the ISO to conserve space on the management node:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo rm &lt;path to iso&gt;/solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso</pre>
+</div>
+</div>
+</li>
+<li>
+<p>On an 11.3 or later management node, run the following command to upgrade your management node OS version. The script retains all necessary configuration files after the upgrade, such as Active IQ collector and proxy settings.</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/rtfi/bin/sfrtfi_inplace file:///upgrade/casper/filesystem.squashfs sf_upgrade=1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The management node reboots with a new OS after the upgrade process completes.</p>
+</div>
+</li>
+<li>
+<p>On the 11.3 or later management node, run the <code>redeploy-mnode</code> script to retain previous management services configuration settings:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The script retains previous management services configuration, including configuration from the Active IQ collector service, controllers (vCenters), or proxy, depending on your settings.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/packages/mnode/redeploy-mnode -mu &lt;mnode user&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upgrade-a-management-node-to-version-12-0-from-11-1-or-11-0">Upgrade a management node to version 12.0 from 11.1 or 11.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can perform an in-place upgrade of the management node from 11.0 or 11.1 to version 12.0 without needing to provision a new management node virtual machine.</p>
+</div>
+<div class="ulist">
+<div class="title">Before you begin</div>
+<ul>
+<li>
+<p>Storage nodes are running Element 11.3 or later.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Use the latest HealthTools to upgrade Element software.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>The management node you are intending to upgrade is version 11.0 or 11.1 and uses IPv4 networking. The management node version 12.0 does not support IPv6.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To check the version of your management node, log in to your management node and view the Element version number in the login banner. For management node 11.0, the VM memory needs to be manually increased to 12GB.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>You have configured an additional network adapter (if required) using the instructions for configuring a storage NIC (eth1) in the management node user guide your product.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Persistent volumes might require an additional network adapter if eth0 is not able to be routed to the SVIP. Configure a new network adapter on the iSCSI storage network to allow the configuration of persistent volumes.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Log in to the management node virtual machine using SSH or console access.</p>
+</li>
+<li>
+<p>Download the management node ISO for <a href="https://mysupport.netapp.com/products/p/hci.html">NetApp HCI</a> or <a href="https://mysupport.netapp.com/products/p/element_software.html">Element</a> software from the NetApp Support Site to the management node virtual machine.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The name of the ISO is similar to <code>solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso</code>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Check the integrity of the download by running md5sum on the downloaded file and compare the output to what is available on NetApp Support Site for NetApp HCI or Element software, as in the following example:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo md5sum -b &lt;path to iso&gt;/solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Mount the management node ISO image and copy the contents to the file system using the following commands:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo mkdir -p /upgrade</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo mount solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso /mnt</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo cp -r /mnt/* /upgrade</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Change to the home directory, and unmount the ISO file from /mnt:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo umount /mnt</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Delete the ISO to conserve space on the management node:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo rm &lt;path to iso&gt;/solidfire-fdva-&lt;Element release&gt;-patchX-XX.X.X.XXXX.iso</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run one of the following scripts with options to upgrade your management node OS version. Only run the script that is appropriate for your version. Each script retains all necessary configuration files after the upgrade, such as Active IQ collector and proxy settings.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>On an 11.1 (11.1.0.73) management node, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/rtfi/bin/sfrtfi_inplace file:///upgrade/casper/filesystem.squashfs sf_upgrade=1 sf_keep_paths="/sf/packages/solidfire-sioc-4.2.3.2288 /sf/packages/solidfire-nma-1.4.10/conf /sf/packages/sioc /sf/packages/nma"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>On an 11.1 (11.1.0.72) management node, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/rtfi/bin/sfrtfi_inplace file:///upgrade/casper/filesystem.squashfs sf_upgrade=1 sf_keep_paths="/sf/packages/solidfire-sioc-4.2.1.2281 /sf/packages/solidfire-nma-1.4.10/conf /sf/packages/sioc /sf/packages/nma"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>On an 11.0 (11.0.0.781) management node, run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/rtfi/bin/sfrtfi_inplace file:///upgrade/casper/filesystem.squashfs sf_upgrade=1 sf_keep_paths="/sf/packages/solidfire-sioc-4.2.0.2253 /sf/packages/solidfire-nma-1.4.8/conf /sf/packages/sioc /sf/packages/nma"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The management node reboots with a new OS after the upgrade process completes.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>On the 12.0 management node, run the <code>upgrade-mnode</code> script to retain previous configuration settings.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you are migrating from an 11.0 or 11.1 management node, the script copies the Active IQ collector to the new configuration format.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>For a single storage cluster managed by an existing management node 11.0 or 11.1 with persistent volumes:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/packages/mnode/upgrade-mnode -mu &lt;mnode user&gt; -pv &lt;true - persistent volume&gt; -pva &lt;persistent volume account name - storage volume account&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For a single storage cluster managed by an existing management node 11.0 or 11.1 with no persistent volumes:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/packages/mnode/upgrade-mnode -mu &lt;mnode user&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For multiple storage clusters managed by an existing management node 11.0 or 11.1 with persistent volumes:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/packages/mnode/upgrade-mnode -mu &lt;mnode user&gt; -pv &lt;true - persistent volume&gt; -pva &lt;persistent volume account name - storage volume account&gt; -pvm &lt;persistent volumes mvip&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>For multiple storage clusters managed by an existing management node 11.0 or 11.1 with no persistent volumes (the <code>-pvm</code> flag is just to provide one of the cluster&#8217;s MVIP addresses):</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo /sf/packages/mnode/upgrade-mnode -mu &lt;mnode user&gt; -pvm &lt;mvip for persistent volumes&gt;</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>(For all NetApp HCI installations and SolidFire stand-alone storage installations with NetApp Element Plug-in for vCenter Server) Update the vCenter Plug-in on the 12.0 management node by following the steps in the <a href="task_vcp_upgrade_plugin.html">Upgrade the Element Plug-in for vCenter Server to version 4.4</a> topic.</p>
+</li>
+<li>
+<p>Use the management node API to add assets:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>From a browser, log into the management node REST API UI:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Go to the storage MVIP and log in.<br>
+This action causes certificate to be accepted for the next step.</p>
+</li>
+<li>
+<p>Open the REST API UI on the management node:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://[management node IP]/mnode</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>From the management node REST API UI, click <strong>Authorize</strong> or any lock icon and complete the<br>
+following:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Enter the cluster user name and password.</p>
+</li>
+<li>
+<p>Enter the client ID as <code>mnode-client</code> if the value is not already populated.</p>
+</li>
+<li>
+<p>Copy the token URL string and paste it into another browser tab to initiate a token request.</p>
+</li>
+<li>
+<p>Click <strong>Authorize</strong> to begin a session.</p>
+</li>
+<li>
+<p>Close the window.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Run <code>GET /assets</code> to find the base asset ID that you will need for the next steps:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Click <strong>GET /assets</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Try it out</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Execute</strong>.</p>
+</li>
+<li>
+<p>Copy the value for <strong>"id"</strong> for the base asset to your clipboard:<br>
+NOTE: You installation has a base asset configuration that was created during installation or upgrade.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../media/mNode_API_Base_asset_ID.png" alt="Base asset ID value">
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Add a vCenter controller asset for HCI monitoring (NetApp HCI installations only) and Hybrid Cloud Control (for all installations) to the management node known assets:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Click <strong>POST /assets/{asset_id}/controllers</strong> to add a controller sub-asset.</p>
+</li>
+<li>
+<p>Click <strong>Try it out</strong>.</p>
+</li>
+<li>
+<p>Enter the required payload values as defined in the <strong>Model</strong> tab with type <code>vCenter</code> and vCenter credentials.</p>
+</li>
+<li>
+<p>Enter the parent base asset ID you copied to your clipboard in the <strong>asset_id</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>Execute</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>(For NetApp HCI only) Add a compute node asset to the management node known assets:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Click <strong>POST/assets/{asset_id}/compute-nodes</strong> to add a compute node sub-asset with credentials for the compute node asset.</p>
+</li>
+<li>
+<p>Click <strong>Try it out</strong>.</p>
+</li>
+<li>
+<p>In the payload, enter the required payload values as defined in the <strong>Model</strong> tab. Use type <code>ESXi Host</code> and remove the <code>hardware_tag</code> parameter.</p>
+</li>
+<li>
+<p>Enter the parent base asset ID you copied to your clipboard in the <strong>asset_id</strong> field.</p>
+</li>
+<li>
+<p>Click <strong>Execute</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="migrating-from-management-node-version-10-x-to-11-x">Migrating from management node version 10.x to 11.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you have a management node at version 10.x, you cannot upgrade from 10.x to 11.x. You can instead use this migration procedure to copy over the configuration from 10.x to a newly deployed 11.1 management node. If your management node is currently at 11.0 or higher, you should skip this procedure. You need management node 11.0 or 11.1 and the latest HealthTools to upgrade Element software from 10.3 + through 11.x.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>From the VMware vSphere interface, deploy the management node 11.1 OVA and power it on.</p>
+</li>
+<li>
+<p>Open the management node VM console, which brings up the terminal user interface (TUI).</p>
+</li>
+<li>
+<p>Use the TUI to create a new administrator ID and assign a password.</p>
+</li>
+<li>
+<p>In the management node TUI, log in to the management node with the new ID and password and validate that it works.</p>
+</li>
+<li>
+<p>From the vCenter or management node TUI, get the management node 11.1 IP address and browse to the IP address on port 9443 to open the management node UI.</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;mNode 11.1 IP address&gt;:9443</pre>
+</div>
+</div>
+</li>
+<li>
+<p>In vSphere, select <strong>NetApp Element Configuration</strong> &gt; <strong>mNode Settings</strong>. (In older versions, the top-level menu is <strong>NetApp SolidFire Configuration</strong>.)</p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> &gt; <strong>Clear</strong>.</p>
+</li>
+<li>
+<p>To confirm, click <strong>Yes</strong>. The mNode Status field should report Not Configured.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+When you go to the <strong>mNode Settings</strong> tab for the first time, the mNode Status field might display as <strong>Not Configured</strong> instead of the expected <strong>UP</strong>; you might not be able to choose <strong>Actions</strong> &gt; <strong>Clear</strong>. Refresh the browser. The mNode Status field will eventually display <strong>UP</strong>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Log out of vSphere.</p>
+</li>
+<li>
+<p>In a web browser, open the management node registration utility and select <strong>QoSSIOC Service Management</strong>:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://&lt;mNode 11.1 IP address&gt;:9443</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Set the new QoSSIOC password.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The default password is <code>solidfire</code>. This password is required to set the new password.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Click the <strong>vCenter Plug-in Registration</strong> tab.</p>
+</li>
+<li>
+<p>Select <strong>Update Plug-in</strong>.</p>
+</li>
+<li>
+<p>Enter required values. When you are finished, click <strong>UPDATE</strong>.</p>
+</li>
+<li>
+<p>Log in to vSphere and select <strong>NetApp Element Configuration</strong> &gt; <strong>mNode Settings</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Actions</strong> &gt; <strong>Configure</strong>.</p>
+</li>
+<li>
+<p>Provide the management node IP address, management node user ID (the user name is <code>admin</code>), password that you set on the <strong>QoSSIOC Service Management</strong> tab of the registration utility, and vCenter user ID and password.</p>
+<div class="paragraph">
+<p>In vSphere, the <strong>mNode Settings</strong> tab should display the mNode status as <strong>UP</strong>, which indicates management node 11.1 is registered to vCenter.</p>
+</div>
+</li>
+<li>
+<p>From the management node registration utility (<code><a href="https://&lt;mNode" class="bare">https://&lt;mNode</a> 11.1 IP address&gt;:9443</code>), restart the SIOC service from <strong>QoSSIOC Service Management</strong>.</p>
+</li>
+<li>
+<p>Wait for one minute and check the <strong>NetApp Element Configuration</strong> &gt; <strong>mNode Settings</strong> tab. This should display the mNode status as <strong>UP</strong>.</p>
+<div class="paragraph">
+<p>If the status is <strong>DOWN</strong>, check the permissions for <code>/sf/packages/sioc/app.properties</code>. The file should have read, write, and execute permissions for the file owner. The correct permissions should appear as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>-rwx------</pre>
+</div>
+</div>
+</li>
+<li>
+<p>After the SIOC process starts and vCenter displays mNode status as <strong>UP</strong>, check the logs for the <code>sf-hci-nma</code> service on the management node. There should be no error messages.</p>
+</li>
+<li>
+<p>(For management node 11.1 only) SSH into the management node version 11.1 with root privileges and start the NMA service with the following commands:</p>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl enable /sf/packages/nma/systemd/sf-hci-nma.service</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre># systemctl start sf-hci-nma21</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Perform actions from vCenter to remove a drive, add a drive or reboot nodes. This triggers storage alerts, which should be reported in vCenter. If this is working, NMA system alerts are functioning as expected.</p>
+</li>
+<li>
+<p>If ONTAP Select is configured in vCenter, configure ONTAP Select alerts in NMA by copying the <code>.ots.properties</code> file from the previous management node to the management node version 11.1 <code>/sf/packages/nma/conf/.ots.properties</code> file, and restart the NMA service using the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>systemctl restart sf-hci-nma</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify that ONTAP Select is working by viewing the logs with the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>journalctl -f | grep -i ots</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Configure Active IQ by doing the following:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>SSH in to the management node version 11.1 and go to the <code>/sf/packages/collector</code> directory.</p>
+</li>
+<li>
+<p>Run the following command:</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo ./manage-collector.py --set-username netapp --set-password --set-mvip &lt;MVIP&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Enter the management node UI password when prompted.</p>
+</li>
+<li>
+<p>Run the following commands:</p>
+<div class="listingblock">
+<div class="content">
+<pre>./manage-collector.py --get-all</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo systemctl restart sfcollector</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Verify <code>sfcollector</code> logs to confirm it is working.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>In vSphere, the <strong>NetApp Element Configuration</strong> &gt; <strong>mNode Settings</strong> tab should display the mNode status as <strong>UP</strong>.</p>
+</li>
+<li>
+<p>Verify NMA is reporting system alerts and ONTAP Select alerts.</p>
+</li>
+<li>
+<p>If everything is working as expected, shut down and delete management node 10.x VM.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="reconfigure-authentication-using-the-management-node-rest-api">Reconfigure authentication using the management node REST API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can keep your existing management node if you have sequentially upgraded (1) management services and (2) Element storage. If you have followed a different upgrade order, see the procedures for in-place management node upgrades.</p>
+</div>
+<div class="ulist">
+<div class="title">Before you begin</div>
+<ul>
+<li>
+<p>You have updated your management services to 2.10.29 or later.</p>
+</li>
+<li>
+<p>Your storage cluster is running Element 12.0 or later.</p>
+</li>
+<li>
+<p>Your management node is 11.3 or later.</p>
+</li>
+<li>
+<p>You have sequentially updated your management services followed by upgrading your Element storage. You cannot reconfigure authentication using this procedure unless you have completed upgrades in the sequence described.</p>
+</li>
+</ul>
+</div>
+<div class="olist arabic">
+<div class="title">Steps</div>
+<ol class="arabic">
+<li>
+<p>Open the management node REST API UI on the management node:</p>
+<div class="listingblock">
+<div class="content">
+<pre>https://[management node IP]/mnode</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Click <strong>Authorize</strong> and complete the following:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Enter the cluster user name and password.</p>
+</li>
+<li>
+<p>Enter the client ID as <code>mnode-client</code> if the value is not already populated.</p>
+</li>
+<li>
+<p>Click <strong>Authorize</strong> to begin a session.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>From the REST API UI, click <strong>POST /services/reconfigure-auth</strong>.</p>
+</li>
+<li>
+<p>Click <strong>Try it out</strong>.</p>
+</li>
+<li>
+<p>For the <strong>load_images</strong> parameter, select <code>true</code>.</p>
+</li>
+<li>
+<p>Click <strong>Execute</strong>.</p>
+<div class="paragraph">
+<p>The response body indicates that reconfiguration was successful.</p>
+</div>
+</li>
+</ol>
+</div>
+<h2 id="find-more-information" class="discrete">Find more information</h2>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.netapp.com/hci/index.jsp" target="_blank" rel="noopener">NetApp HCI Documentation Center</a></p>
+</li>
+<li>
+<p><a href="https://docs.netapp.com/us-en/documentation/hci.aspx" target="_blank" rel="noopener">NetApp HCI Resources Page</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  
+  <!-- Start Page Toolbar -->
+  <div class="page-nav-toolbar">
+    <div class="page-nav-contribute"  >
+      <div class="page-nav-contribute-title">CONTRIBUTE</div>
+      <a target="_blank" href="https://github.com/NetAppDocs/hci/blob/master/docs/task_hcc_upgrade_management_node.adoc" class="btn btn-default githubEditButton" role="button"><img src="/hci/us-en/images/github.png" class="github-icon" /> Edit on GitHub</a>
+      <a target="_blank" href="https://github.com/NetAppDocs/hci/issues/new?body=Page%3A%20[Upgrade a management node](https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_management_node.html)" class="btn btn-default githubEditButton" role="button"><img src="/hci/us-en/images/github.png" class="github-icon" /> Request doc changes</a>
+      <a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  >Contributor's Guide</a>
+    </div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">ON THIS PAGE</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div style="clear: both"></div><!-- Main needs to have height -->
+</div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+            <a href="https://www.netapp.com/us/legal/copyright.aspx">© 2020 NetApp</a>
+            </li>
+            <li class="n-footer__language">
+              <!-- <a class="n-footer__corp-link modaal" href="#n-language-selector-menu" data-modaal-scope="modaal_154143812867626e487b1a03c9"> -->
+              <a class="n-footer__corp-link modaal" href="#n-language-selector-menu">
+                <svg class="n-icon-baseline-language" aria-labelledby="title">
+                  <title>netapp-globe</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#globe"></use>
+                </svg>
+                English
+              </a>
+            </li>
+
+</ul>
+</div>
+<div class="n-footer__social-links">
+<ul class="n-footer__social-link-list">
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com" target="_blank" title="blog" alt="blog">
+<span class="n-footer__social-link-text">blog</span>
+<svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+  <title>blog@</title>
+  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#blog"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/" target="_blank" title="community" alt="community">
+<span class="n-footer__social-link-text">community</span>
+<svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+<title>community@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#comments"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp" target="_blank" title="twitter" alt="twitter">
+<span class="n-footer__social-link-text">twitter</span>
+<svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+<title>twitter@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#twitter"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp" target="_blank" title="facebook" alt="facebook">
+<span class="n-footer__social-link-text">facebook</span>
+<svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+<title>facebook@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#facebook"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-linkedin" href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+<span class="n-footer__social-link-text">linkedin</span>
+<svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+<title>linkedin@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#linkedin"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-youtube" href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+<span class="n-footer__social-link-text">youtube</span>
+<svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+<title>youtube@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#youtube"></use>
+</svg>
+
+</a>
+</li>
+<li class="n-footer__social-link-list-item">
+<a class="n-footer__social-link" data-ntap-social="follow-slideshare" href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+<span class="n-footer__social-link-text">slideshare</span>
+<svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+<title>slideshare@</title>
+<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/hci/us-en/common/svg/sprite.svg#slideshare"></use>
+</svg>
+
+</a>
+</li>
+</ul>
+</div>
+
+</div>
+<div class="n-footer__bottom-right">
+  <p class="n-footer__fine-print">
+
+
+  Have feedback for our website?
+
+  <a target="_self" href="javascript:netapp_mailto()" class="n-footer__copyright">Let us know</a>
+  <a href="https://docs.netapp.com/us-en/announcements/" class="n-footer__copyright">Announcements</a>
+  </p>
+</div>
+</div>
+</div>
+</footer>
+
+      </div>
+
+      <!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/hci/us-en/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/hci/us-en/js/prism.js'></script>
+      <script type="text/javascript" src='/hci/us-en/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/hci/us-en/js/www-ntap.js'></script>
+  </body>
+
+  
+</html>
