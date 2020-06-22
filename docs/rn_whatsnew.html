@@ -953,6 +953,52 @@
         </div>
       
       <li>
+        <a target="_blank" href="/hci/pdfs/docs_sidebar/Requirements_and_pre_deployment_tasks.pdf" >
+          <img src="/hci/images/pdf.png" width="20" height="20"/>
+          Requirements and pre-deployment tasks
+        </a>
+      </li>
+      <span>
+        
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+      </span>
+    </span>
+  
+
+  
+    <span class="subfolders" style="display:none;">
+      
+        <div class="n-pdf-section">
+          <span class="n-pdf-section-title">
+            Sections
+          </span>
+        </div>
+      
+      <li>
         <a target="_blank" href="/hci/pdfs/docs_sidebar/Get_started_with_NetApp_HCI.pdf" >
           <img src="/hci/images/pdf.png" width="20" height="20"/>
           Get started with NetApp HCI
@@ -1336,6 +1382,196 @@
   
     
       <li><a href="concept_hci_performance.html">Performance</a></li>
+    
+  
+
+
+        </ul>
+      </li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <!-- Check Container -->
+      <li class="subfolders">
+        <a href="#">Requirements and pre-deployment tasks</a>
+        <ul>
+          
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_required_network_ports.html">Network ports used by NetApp HCI</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_network_switch.html">Network and switch requirements</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_network_cables.html">Network cable requirements</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_ip_address.html">IP address requirements</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_network_configuration.html">Network configuration</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_timekeeping.html">DNS and timekeeping requirements</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_environmental.html">Environmental requirements</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_protection_domains.html">Protection Domains</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_witness_nodes.html">Witness Node resource requirements for two-node storage clusters</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_LACP_configuration.html">Configuring LACP for optimal storage performance</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_task_validate_config_advisor.html">Validating your environment with Active IQ Config Advisor</a></li>
+    
+  
+
+
+  
+
+  
+
+  
+  
+
+  
+    
+      <li><a href="hci_prereqs_final_prep.html">Final preparations</a></li>
     
   
 
@@ -1886,7 +2122,7 @@
 <p class="page-details">
   
     
-    <time datetime="2020-05-01 21:28:10 +0000">05/01/2020</time>
+    <time datetime="2020-06-03 20:59:22 +0000">06/03/2020</time>
     
   
 
@@ -1931,7 +2167,17 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph lead">
-<p>NetApp periodically updates NetApp HCI to bring you new features, enhancements, and bug fixes.</p>
+<p>NetApp periodically updates NetApp HCI to bring you new features, enhancements, and bug fixes. NetApp HCI 1.8 includes Element 12.0 for storage clusters.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#netapp-hci-1-8">NetApp HCI 1.8</a> describes new features and updates in NetApp HCI version 1.8.</p>
+</li>
+<li>
+<p><a href="#element-12-0">Element 12.0</a> describes new features and updates in NetApp Element 12.0.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1940,18 +2186,6 @@
 <div class="sectionbody">
 <div class="paragraph">
 <p>NetApp HCI 1.8 introduces two-node and three-node storage cluster capability, multi-factor authentication, and NetApp Hybrid Cloud Control enhancements.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-NetApp HCI 1.8 includes NetApp Element software 12.0. <a href="http://docs.netapp.com/sfe-120/topic/com.netapp.ndc.sfe-home/GUID-D0719315-8ECA-44E8-994A-F2DAA3D1FABA.html" target="_blank" rel="noopener">Learn more</a> about what&#8217;s new in Element 12.0.
-</td>
-</tr>
-</table>
 </div>
 <div class="sect2">
 <h3 id="active-iq-config-advisor">Active IQ Config Advisor</h3>
@@ -1982,6 +2216,249 @@ NetApp HCI 1.8 includes NetApp Element software 12.0. <a href="http://docs.netap
 <div class="paragraph">
 <p>With version 1.8, you can set up NetApp HCI to use a storage cluster with two or three storage nodes. When you deploy with a two-node or three-node storage cluster, the deployment process automatically configures two NetApp Witness Nodes as virtual machines. Witness Nodes are virtual nodes that enable storage node redundancy in the event of a storage node failure. NetApp HCI supports the H410S-0, H410S-1, and H610S-1 storage nodes in two-node or three-node storage clusters. <a href="concept_hci_clusters.html" target="_blank" rel="noopener">Learn more</a>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="element-12-0">Element 12.0</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>NetApp HCI 1.8 includes Element 12.0 for storage clusters. Element 12.0 introduces multi-factor authentication, session-based web UI logins, external key management (EKM) enhancements, faster upgrades, customizable protection domains, and contains stability and functionality improvements.</p>
+</div>
+<div class="sect2">
+<h3 id="element-12-0-firmware-updates">Element 12.0 firmware updates</h3>
+<div class="paragraph">
+<p>The following firmware updates for H610S storage node hardware components are included with this release:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Component</th>
+<th class="tableblock halign-left valign-top">Firmware version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BIOS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3B03</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NVDIMM Gen1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NVDIMM BPM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.16</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CPLD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">v122</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BMC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.78.07</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">YafuFlash2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.16.21</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="multiple-vcenter-vasa-support">Multiple vCenter VASA support</h3>
+<div class="paragraph">
+<p>VASA support for up to 10 vCenters is available as an upgrade patch if you have already registered a VASA provider with your vCenter. To install, follow the directions in the VASA39 manifest and download the .tar.gz file from the <a href="https://mysupport.netapp.com/products/element_software/VASA39/index.html" target="_blank" rel="noopener">NetApp Software Downloads</a> site.<br>
+NOTE: The NetApp Element VASA provider uses a NetApp certificate. With this patch, the certificate is used unmodified by vCenter to support multiple vCenters for VASA and VVols use. Do not modify the certificate. Custom SSL certificates are not supported by VASA.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="customizable-protection-domains">Customizable Protection Domains</h3>
+<div class="paragraph">
+<p>Beginning with Element 12.0, you can customize protection domain layouts to cover zones of storage nodes within a rack, or between multiple racks. This enables you to have more flexibility in data resiliency and to improve storage availability, especially in large scale installations. When you enable the feature, you must have at least 3 domains, and at least 2 storage nodes per domain.</p>
+</div>
+<div class="paragraph">
+<p>The following are Element API methods related to Protection Domains (the <a href="http://docs.netapp.com/sfe-120/topic/com.netapp.doc.sfe-api/home.html" target="_blank" rel="noopener">Element API Reference Guide</a> has more information):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SetProtectionDomainLayout</p>
+</li>
+<li>
+<p>GetProtectionDomainLayout</p>
+</li>
+<li>
+<p>ListAllNodes</p>
+</li>
+<li>
+<p>ListActiveNodes</p>
+</li>
+<li>
+<p>ListPendingNodes</p>
+</li>
+<li>
+<p>AddDrives</p>
+</li>
+<li>
+<p>ListProtectionDomainLevels</p>
+</li>
+<li>
+<p>CheckProposedNodeAdditions</p>
+</li>
+<li>
+<p>CheckProposedCluster</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="faster-upgrades">Faster upgrades</h3>
+<div class="paragraph">
+<p>Element 12.0 brings decreases in upgrade times. Upgrades from Element 12.0 to future Element releases are significantly faster than upgrades from previous versions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhanced-external-key-management">Enhanced external key management</h3>
+<div class="paragraph">
+<p>Element 12.0 external key management (EKM) now supports the following key management<br>
+services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Gemalto SafeNet KeySecure</p>
+</li>
+<li>
+<p>SafeNet AT KeySecure</p>
+</li>
+<li>
+<p>HyTrust KeyControl</p>
+</li>
+<li>
+<p>Vormetric Data Security Manager (new in Element 12.0)</p>
+</li>
+<li>
+<p>IBM Security Key Lifecycle Manager (new in Element 12.0)<br>
+<a href="http://docs.netapp.com/sfe-120/topic/com.netapp.doc.sfe-ug/GUID-057D852C-9C1C-458A-9161-328EDA349B00.html" target="_blank" rel="noopener">Learn more.</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="multi-factor-authentication">Multi-factor authentication</h3>
+<div class="paragraph">
+<p>With multi-factor authentication (MFA) support, you can now integrate the Element web UI and the storage per-node web UI with your single sign-on (SSO) infrastructure.<br>
+MFA supports the following SAML 2.0-based identity providers (IdPs):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Microsoft Active Directory Federation Services (ADFS) 2016</p>
+</li>
+<li>
+<p>Shibboleth 3.4.4</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following are Element API methods related to MFA (the Element API Reference Guide has more information):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CreateIdpConfiguration</p>
+</li>
+<li>
+<p>UpdateIdpConfiguration</p>
+</li>
+<li>
+<p>DeleteIdpConfiguration</p>
+</li>
+<li>
+<p>ListIdpConfigurations</p>
+</li>
+<li>
+<p>EnableIdpAuthentication</p>
+</li>
+<li>
+<p>DisableIdpAuthentication</p>
+</li>
+<li>
+<p>ListProtectionDomainLevels</p>
+</li>
+<li>
+<p>GetIdpAuthenticationState</p>
+</li>
+<li>
+<p>ListCurrentClusterAdmins</p>
+</li>
+<li>
+<p>DeleteAuthSession</p>
+</li>
+<li>
+<p>DeleteAuthSessionsByClusterAdmin</p>
+</li>
+<li>
+<p>DeleteAuthSessionsByUsername</p>
+</li>
+<li>
+<p>ListActiveAuthSessions</p>
+</li>
+<li>
+<p>ListAuthSessionsByClusterAdmin</p>
+</li>
+<li>
+<p>ListAuthSessionsByUsername</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="new-storage-node-terminal-user-interface-tui">New storage node terminal user interface (TUI)</h3>
+<div class="paragraph">
+<p>The Element TUI is now restructured and features easier to use navigation and input fields.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="new-storage-per-node-web-ui">New storage per-node web UI</h3>
+<div class="paragraph">
+<p>The Element 12.0 storage per-node web UI now uses the look and feel of NetApp Hybrid Cloud<br>
+Control. You can access this UI at <a href="https://&lt;Node" class="bare">https://&lt;Node</a> IP address&gt;:442/hcc.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="security-enhancements">Security enhancements</h3>
+<div class="paragraph">
+<p>Element 12.0 resolves many security vulnerabilities for storage nodes and the management node.<br>
+<a href="http://security.netapp.com/" target="_blank" rel="noopener">Learn more</a> about these security enhancements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="session-based-authentication">Session-based authentication</h3>
+<div class="paragraph">
+<p>The Element API now supports token authentication and authorization, enabling you to log on to the Element web UI or individual storage per-node web UIs with either the local cluster admin credentials or LDAP-based cluster admin credentials. One browser login session token covers multiple web UI logins, so you can log in to the Element web UI and then log in to all individual storage per-node web UIs in that storage cluster and not have to re-authenticate with each one.</p>
+</div>
+<div class="paragraph">
+<p>The following are Element API methods related to session-based authentication (the Element API Reference Guide has more information):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ListAuthSessionsByClusterAdmin</p>
+</li>
+<li>
+<p>ListActiveAuthSessions</p>
+</li>
+<li>
+<p>ListAuthSessionsByUsername</p>
+</li>
+</ul>
+</div>
 <h2 id="find-more-information" class="discrete">Find more information</h2>
 <div class="ulist">
 <ul>
@@ -1990,6 +2467,9 @@ NetApp HCI 1.8 includes NetApp Element software 12.0. <a href="http://docs.netap
 </li>
 <li>
 <p><a href="http://docs.netapp.com/sfe-120/index.jsp" target="_blank" rel="noopener">SolidFire and Element Software Documentation Center</a></p>
+</li>
+<li>
+<p><a href="https://kb.netapp.com/app/answers/answer_view/a_id/1088658" target="_blank" rel="noopener">Firmware and driver versions for NetApp HCI and NetApp Element software</a></p>
 </li>
 </ul>
 </div>
