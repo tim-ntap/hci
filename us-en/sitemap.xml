@@ -15,7 +15,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_architecture_cloudinsights.html</loc>
       
-      <lastmod>2019-08-19T20:42:21+00:00</lastmod>
+      <lastmod>2019-08-19T21:39:51+00:00</lastmod>
       
     </url>
   
@@ -36,7 +36,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_hcc_expandoverview.html</loc>
       
-      <lastmod>2020-04-23T16:54:31+00:00</lastmod>
+      <lastmod>2020-06-03T19:24:33+00:00</lastmod>
       
     </url>
   
@@ -57,7 +57,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_hci_nodes.html</loc>
       
-      <lastmod>2020-04-29T15:51:00+00:00</lastmod>
+      <lastmod>2020-05-27T19:38:39+00:00</lastmod>
       
     </url>
   
@@ -71,7 +71,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_hci_product_overview.html</loc>
       
-      <lastmod>2020-04-23T16:54:31+00:00</lastmod>
+      <lastmod>2020-06-10T23:32:26+00:00</lastmod>
       
     </url>
   
@@ -141,7 +141,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/reference_notices_hci.html</loc>
       
-      <lastmod>2020-05-07T20:12:52+00:00</lastmod>
+      <lastmod>2020-06-19T20:12:43+00:00</lastmod>
       
     </url>
   
@@ -169,21 +169,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/search.html</loc>
       
-      <lastmod>2020-06-05T00:15:13+00:00</lastmod>
+      <lastmod>2020-06-22T18:11:26+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/solutions/search.html</loc>
       
-      <lastmod>2020-06-05T00:15:13+00:00</lastmod>
+      <lastmod>2020-06-22T18:11:26+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci//search.html</loc>
       
-      <lastmod>2020-06-05T00:15:06+00:00</lastmod>
+      <lastmod>2020-06-22T18:11:18+00:00</lastmod>
       
     </url>
   
@@ -267,7 +267,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_license_convert.html</loc>
       
-      <lastmod>2019-08-19T20:42:21+00:00</lastmod>
+      <lastmod>2019-08-19T21:39:51+00:00</lastmod>
       
     </url>
   
@@ -281,7 +281,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_update_management_services.html</loc>
       
-      <lastmod>2020-05-04T23:21:20+00:00</lastmod>
+      <lastmod>2020-06-17T00:11:29+00:00</lastmod>
       
     </url>
   
@@ -295,14 +295,14 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_compute_node_drivers.html</loc>
       
-      <lastmod>2020-04-20T01:25:30+00:00</lastmod>
+      <lastmod>2020-06-16T23:26:02+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_compute_node_firmware.html</loc>
       
-      <lastmod>2020-04-20T01:25:30+00:00</lastmod>
+      <lastmod>2020-06-17T00:23:27+00:00</lastmod>
       
     </url>
   
@@ -316,28 +316,35 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_element_prechecks.html</loc>
       
-      <lastmod>2020-04-20T01:25:30+00:00</lastmod>
+      <lastmod>2020-06-16T23:26:02+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_element_software.html</loc>
       
-      <lastmod>2020-05-04T22:27:35+00:00</lastmod>
+      <lastmod>2020-06-19T15:38:43+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_management_node.html</loc>
       
-      <lastmod>2020-05-04T22:27:35+00:00</lastmod>
+      <lastmod>2020-06-16T23:26:02+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hci_getstarted.html</loc>
       
-      <lastmod>2020-05-11T19:45:50+00:00</lastmod>
+      <lastmod>2020-06-11T20:09:04+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_hci_installhw.html</loc>
+      
+      <lastmod>2020-06-11T00:17:02+00:00</lastmod>
       
     </url>
   
@@ -372,7 +379,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_upgrade_compute_prechecks.html</loc>
       
-      <lastmod>2020-05-04T22:27:35+00:00</lastmod>
+      <lastmod>2020-06-16T23:26:02+00:00</lastmod>
       
     </url>
   
@@ -386,7 +393,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_vcp_upgrade_plugin.html</loc>
       
-      <lastmod>2020-04-29T01:37:41+00:00</lastmod>
+      <lastmod>2020-06-16T23:26:02+00:00</lastmod>
       
     </url>
   
