@@ -15,7 +15,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_architecture_cloudinsights.html</loc>
       
-      <lastmod>2019-10-29T19:55:35+00:00</lastmod>
+      <lastmod>2019-11-01T20:11:36+00:00</lastmod>
       
     </url>
   
@@ -78,7 +78,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_hci_storage.html</loc>
       
-      <lastmod>2020-04-01T22:37:46+00:00</lastmod>
+      <lastmod>2020-04-03T21:43:47+00:00</lastmod>
       
     </url>
   
@@ -86,6 +86,13 @@
       <loc>https://docs.netapp.com/us-en/hci/docs/concept_hci_upgrade_overview.html</loc>
       
       <lastmod>2020-05-04T22:27:35+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/concept_hci_volumes.html</loc>
+      
+      <lastmod>2020-06-09T20:02:44+00:00</lastmod>
       
     </url>
   
@@ -232,7 +239,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/reference_requirements_beforeyoubegin.html</loc>
       
-      <lastmod>2020-04-01T21:15:53+00:00</lastmod>
+      <lastmod>2020-04-01T21:36:19+00:00</lastmod>
       
     </url>
   
@@ -260,21 +267,21 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/search.html</loc>
       
-      <lastmod>2020-06-23T21:23:51+00:00</lastmod>
+      <lastmod>2020-06-25T23:44:10+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci/solutions/search.html</loc>
       
-      <lastmod>2020-06-23T21:23:51+00:00</lastmod>
+      <lastmod>2020-06-25T23:44:10+00:00</lastmod>
       
     </url>
   
     <url>
       <loc>https://docs.netapp.com/us-en/hci//search.html</loc>
       
-      <lastmod>2020-06-23T21:23:43+00:00</lastmod>
+      <lastmod>2020-06-25T23:44:02+00:00</lastmod>
       
     </url>
   
@@ -288,7 +295,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_deploying_overview.html</loc>
       
-      <lastmod>2020-04-01T21:15:53+00:00</lastmod>
+      <lastmod>2020-04-01T21:36:19+00:00</lastmod>
       
     </url>
   
@@ -316,7 +323,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_collectlogs.html</loc>
       
-      <lastmod>2020-06-01T15:29:09+00:00</lastmod>
+      <lastmod>2020-06-18T19:30:58+00:00</lastmod>
       
     </url>
   
@@ -358,7 +365,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_license_convert.html</loc>
       
-      <lastmod>2019-10-29T19:55:35+00:00</lastmod>
+      <lastmod>2019-11-01T20:11:36+00:00</lastmod>
       
     </url>
   
@@ -414,7 +421,7 @@
     <url>
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hcc_upgrade_element_software.html</loc>
       
-      <lastmod>2020-06-22T15:44:33+00:00</lastmod>
+      <lastmod>2020-06-25T17:55:33+00:00</lastmod>
       
     </url>
   
@@ -450,6 +457,125 @@
       <loc>https://docs.netapp.com/us-en/hci/docs/task_hci_upgrade_all_vsphere.html</loc>
       
       <lastmod>2020-04-30T22:01:18+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_access_ui.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_add_assets.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_api_get_authorizationtouse.html</loc>
+      
+      <lastmod>2020-06-09T20:02:44+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_change_storage_cluster_admin_password.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_configure_proxy_server.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_enable_activeIQ.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_enable_alerts.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_enable_remote_support_connections.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_get_logs_from_management_services.html</loc>
+      
+      <lastmod>2020-06-09T20:02:44+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_install.html</loc>
+      
+      <lastmod>2020-06-25T18:52:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_install_add_storage_NIC.html</loc>
+      
+      <lastmod>2020-06-25T16:50:51+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_recover.html</loc>
+      
+      <lastmod>2020-06-25T18:52:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_run_system_utilities.html</loc>
+      
+      <lastmod>2020-06-18T23:27:20+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_settings.html</loc>
+      
+      <lastmod>2020-06-09T23:20:43+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_work_overview.html</loc>
+      
+      <lastmod>2020-06-25T18:52:31+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_work_overview_API.html</loc>
+      
+      <lastmod>2020-06-25T00:25:47+00:00</lastmod>
+      
+    </url>
+  
+    <url>
+      <loc>https://docs.netapp.com/us-en/hci/docs/task_mnode_work_overview_UI.html</loc>
+      
+      <lastmod>2020-06-25T22:16:58+00:00</lastmod>
       
     </url>
   
