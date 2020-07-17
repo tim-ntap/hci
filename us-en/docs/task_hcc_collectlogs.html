@@ -3527,7 +3527,7 @@
 <p class="page-details">
   
     
-    <time datetime="2020-06-18 19:30:58 +0000">06/18/2020</time>
+    <time datetime="2020-07-16 16:29:25 +0000">07/16/2020</time>
     
   
 
@@ -3557,6 +3557,10 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>If you have trouble with your NetApp HCI installation, you can collect logs to send to NetApp Support to help with diagnosis. You can either use NetApp Hybrid Cloud Control or the REST API to collect logs.</p>
+</div>
+<div class="paragraph">
+<div class="title">Log collection options</div>
+<p>Choose one of the following options:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3690,23 +3694,58 @@ Depending on the logs you collect, the progress bar might remain at a certain pe
 <p>Click <strong>Try it out</strong>.</p>
 </li>
 <li>
-<p>Change the values of the following parameters in the <strong>Request body</strong> field to true or false depending on which type of logs you need to collect:</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p><code>computeLogs</code></p>
-</li>
-<li>
-<p><code>mnodeLogs</code></p>
-</li>
-<li>
-<p><code>storageCrashDumps</code></p>
-</li>
-<li>
-<p><code>storageLogs</code></p>
-</li>
-</ol>
-</div>
+<p>Change the values of the following parameters in the <strong>Request body</strong> field depending on which type of logs you need to collect and for what time range:</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>modifiedSince</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only include logs modified after this date and time. For example, the value "2020-07-14T20:19:00.000Z" defines a start date of July 14, 2020 at 20:19 UTC.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>computeLogs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to <code>true</code> to include compute node logs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>computeIds</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UUID array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If <code>computeLogs</code> is set to <code>true</code>, populate this parameter with the management node asset IDs of compute nodes to limit log collection to those specific compute nodes. Use the <code>GET https://[management node IP]/logs/1/bundle/options</code> endpoint to see all possible node IDs you can use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mnodeLogs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to <code>true</code> to include management node logs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>storageCrashDumps</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to <code>true</code> to include storage node crash debug logs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>storageLogs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Set this parameter to <code>true</code> to include storage node logs.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>storageNodeIds</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UUID array</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If <code>storageLogs</code> is set to <code>true</code>, populate this parameter with the storage cluster node IDs to limit log collection to those specific storage nodes. Use the <code>GET https://[management node IP]/logs/1/bundle/options</code> endpoint to see all possible node IDs you can use.</p></td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p>Click <strong>Execute</strong> to begin log collection.<br>
